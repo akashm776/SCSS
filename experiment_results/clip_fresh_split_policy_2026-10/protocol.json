@@ -1,0 +1,69 @@
+{
+  "experiment": "clip_fresh_split_policy_v1",
+  "training_seeds": [
+    271828,
+    161803,
+    141421
+  ],
+  "checkpoint_steps": [
+    100,
+    500
+  ],
+  "stream_seeds": [
+    2026100101,
+    2026100102
+  ],
+  "previous_stream_seeds": [
+    2026092402,
+    2026092601,
+    2026092602,
+    2026093002,
+    2026093003
+  ],
+  "arms": [
+    "gated",
+    "native",
+    "sustained",
+    "random_matched"
+  ],
+  "horizon": 50,
+  "batch_size": 64,
+  "coefficient": 0.06005351588542947,
+  "alignment_threshold": 0.030847286945687016,
+  "scheduler_horizon": 3850,
+  "trunk_updates": 500,
+  "trunk_gate_refresh_steps": [
+    100,
+    250
+  ],
+  "gate_refresh_offsets": [
+    0,
+    10,
+    25
+  ],
+  "observation_steps": [
+    0,
+    50
+  ],
+  "permutation_seed": 2026100103,
+  "report_split_seed": 2026100104,
+  "report_size": 512,
+  "original_train_size": 5994,
+  "old_holdout_size": 1024,
+  "frozen_probe_size": 1024,
+  "new_training_size": 4458,
+  "expected_batches_per_epoch": 69,
+  "primary": "seed_mean_gated_minus_random_matched_full512_loss_at_50",
+  "trunk_optimizer_steps": 1500,
+  "branch_optimizer_steps": 2400,
+  "optimizer_step_budget": 3900,
+  "rules_refitted": false,
+  "report_controls_treatment": false,
+  "new_training_seeds": true,
+  "fresh_reporting_split_for_this_run": true,
+  "independent_test_set": false,
+  "new_external_dataset": false,
+  "historically_unused_images_claimed": false,
+  "literal_training_loader_resume": false,
+  "exploratory_followup": true
+}

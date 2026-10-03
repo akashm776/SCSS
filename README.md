@@ -1,81 +1,102 @@
-# OTCO: Optimal Transport Contrastive Learning
+# State-Conditioned Synthetic Supervision (SCSS)
 
-Research code studying **when synthetic hard negatives help contrastive learning—and when they do not**. OTCO uses optimal transport to weight nearby mismatched embeddings and mix them into synthetic negatives. Uniform mixtures and real-negative controls test which parts actually matter.
+**Reusable generators of training signals, evaluated by when they help a learner.**
 
-The current evidence separates **hardness, gradient direction, actual optimizer updates, and downstream performance**. Staged one-step CLIP/CUB-200 studies cover six training seeds; the latest gated and exposure-matched rollouts cover three reused seeds. They do not establish a general curriculum rule or an OT-weighting advantage.
+This research program asks whether some reliance on stored training examples can
+be replaced by stored **generation functions**: rules or learned generators that
+produce useful supervision for a model in a particular learning state. The aim is
+not simply to accumulate more synthetic examples, but to understand which generated
+signals to supply, when, at what strength, and for how long.
 
-## Current research state — September 30, 2026
+The current experimental test bed is synthetic negative construction in CLIP/CUB-200.
+It tests a prerequisite of that broader idea: **the same construction rule can help
+in one state and hurt in another**. We have not yet demonstrated a learned generator
+library, reduced data requirements, a general curriculum, or reliable retrieval gains.
 
-The [consolidated research record](docs/research-status-2026-09-24.md) brings together the completed evaluation-transfer, gated-training, exposure-matched, and saved-checkpoint studies. Small raw results, original manifests, source snapshots, and export audits are committed; large checkpoints and caption-bearing data remain outside Git.
+Formerly **OTCO: Optimal Transport Contrastive Learning**. OT weighting was an
+initial construction hypothesis, not an established advantage. Historical experiment
+IDs, source snapshots, Python project identifier and Colab Drive paths retain `otco`
+or `OTCO` for reproducibility. The repository URL is unchanged.
 
-The latest matched-branch diagnostic completed **12 states, 36 branches, and 1,824 optimizer updates**, with separate meta and reporting data. Sustained pressure improved reporting loss from all three update-100 states, but worsened it from all nine later states. The frozen gate predicted immediate effect signs in **11/12** states, versus **9/12** at the 50-update sustained endpoint. This motivates investigating horizon and starting-state dependence—not claiming a successful curriculum or a causal mechanism.
+[Research program](docs/research-program.md) ·
+[Complete experiment ledger](docs/experiment-ledger.md) ·
+[Latest results and interpretation](docs/research-status-2026-10-03.md) ·
+[Reproduce and verify](docs/evidence-and-reproduction.md)
 
-[Diagnostic results](experiment_results/clip_checkpoint_diagnostic_2026-09/README.md) · [Recheck exported evidence](scripts/archive_clip_followup_evidence.py) · [Colab diagnostic and recovery](docs/clip-checkpoint-diagnostic.md)
+## What the evidence currently says
 
-**September 29 follow-up (archived and verified):** the [continuation time course](docs/clip-continuation-timecourse.md) completed 24 pairs / 2,400 updates. All six early seed-stream pairs improved reporting loss at update 50; all 18 later pairs worsened it. Reporting-pool R@1 worsened in 22 pairs and tied in two. Alignment fell relative to native history, but this alone does not identify marginal usefulness or a readiness mechanism. [Small results and source snapshots](experiment_results/clip_continuation_timecourse_2026-09/README.md) are retained; captions and checkpoints remain outside Git.
+As of **October 3, 2026**, the strongest result is a controlled early/later contrast
+in short matched continuations—not an overall synthetic-data performance win.
+The latest studies use three paired training seeds, two continuation streams,
+and a reused 512-image reporting pool. Streams are not independent training seeds.
 
-**September 30 follow-up (archived and verified):** [post-treatment marginal utility](docs/clip-marginal-utility.md) completed all 12 pairs / 1,536 updates. Sustained history reduces next-step auxiliary usefulness in all 12 pairs at offsets 10, 25 and 50; primary loss contrast is +0.00001563. The [complete second run](experiment_results/clip_marginal_utility_2026-09/README.md) reproduces the six [partial-run pairs](experiment_results/clip_marginal_utility_partial_2026-09/README.md) exactly; the first run under Drive's `failed runs` is not additional evidence. No retrieval gain or mechanism is established.
-
-**September 30 policy test (archived and verified):** the [frozen alignment-policy test](docs/clip-policy-test.md) completed 12 matched sets / 48 branches / 2,400 updates. Gate-minus-random timing loss is −0.00003434 overall, but reverses sign between reporting partitions and between continuation streams. Gating improves loss versus native in all six early pairs and worsens it in all six later pairs. No robust policy benefit is established. [Archived results](experiment_results/clip_policy_test_2026-09/README.md).
-
-**Offline robustness audit (completed; zero GPU updates):** [report and checksummed analysis](experiment_results/clip_policy_robustness_2026-09/REPORT.md) · [reproducible diagnostic](docs/clip-policy-robustness.md). The favorable timing average survives leaving out each seed, but not each stream, checkpoint, or reporting partition. One of 16 paired reporting-batch deletions reverses its sign. This is a post-hoc sensitivity analysis of three reused seeds, not independent confirmation or a fitted gate.
-
-**Next bounded test (implemented; not GPU-run):** [fixed-endpoint reporting-pool test](docs/clip-policy-pool-test.md) · [pasteable A100 Colab cell](colabs/clip_policy_pool_test_drive_one_cell.py). Replay the archived schedules with exact endpoint checks (2,400 updates), then evaluate full-512 loss and 32 fixed new B64 reporting partitions. Cache endpoint embeddings and logit scales for future CPU-only evaluation. This tests reporting-pool sensitivity, not an independent policy replication.
-
-Recheck these completed and partial exports with `python -m scripts.archive_clip_september30_evidence --verify-only`. The filtered public archives preserve original manifests and numeric results but do not replace full Colab input ZIPs.
-
-## Research progress
-
-| Study | Status | Main finding |
-|---|---|---|
-| [Original CLIP ablations](docs/clip-experiments.md) | Completed | No auxiliary variant beats baseline final average R@1 in the eight 50-epoch runs |
-| [Gradients across fine-tuning](docs/clip-gradient-stages.md) | Completed | The per-query synthetic margin proxy improves during native-only warmup |
-| [Dense warmup / shared-head probes](docs/clip-warmup-readiness.md) | Completed | Weak positive head alignment at update 100 becomes near-zero or negative later |
-| [Early-pulse intervention](docs/clip-early-pulse.md) | Completed | Tiny retrieval gain, lower species accuracy; no convincing overall benefit |
-| [Paired actual-AdamW updates](docs/clip-paired-updates.md) | Completed, seed 42 | Synthetic update improves held-out loss in 16/16 early trials, 0/16 later trials; effects are small |
-| [Two-seed replication](docs/clip-paired-seed-replication.md) | Completed | Early benefit repeats in seeds 123 and 456; later effects are smaller and change sign across seeds |
-| [Intermediate checkpoints](docs/clip-paired-intermediate.md) | Completed | Five-state curves are non-monotonic and seed-dependent; no universal switch-off point |
-| [Predictor screening](docs/clip-usefulness-predictors.md) | Completed | Alignment: 11/15 correct vs step: 9/15; tied at 9/12 after excluding near-zero effects |
-| [Frozen-rule new-seed test](docs/clip-usefulness-prospective.md) | Completed | Alignment +6.94 points in mean seed balanced accuracy; ordinary and non-near-zero accuracy tied |
-| [Replay + evaluation-pool transfer](experiment_results/clip_evaluation_transfer_2026-09/README.md) | Completed | New-pool alignment 15/15 versus timing 11/15; reused test split, not untouched-test confirmation |
-| [Gated-training pilot](experiment_results/clip_gated_training_2026-09/README.md) | Completed, three seeds | Alignment minus baseline +0.00575 pp canonical R@1; unequal auxiliary exposure |
-| [Exposure-matched timing control](experiment_results/clip_exposure_matched_2026-09/README.md) | Completed, three seeds | Alignment minus mean random timing +0.01151 pp; small, mixed seed effects |
-| [Saved-checkpoint diagnostic](experiment_results/clip_checkpoint_diagnostic_2026-09/README.md) | Completed, 12 states | Immediate signs do not guarantee sustained benefit; no fresh-test or mechanism claim |
-
-## Earlier milestone: frozen rules on new seeds
-
-After mapping five checkpoints in development seeds 42, 123 and 456, freeze an alignment threshold and a timing comparator, then test **new seeds 789, 2026 and 31415** without refitting. The prospective run completed **720 paired branches / 15 seed-checkpoint states**.
-
-| Frozen rule | Mean seed balanced accuracy | Correct states | Correct excluding ±1e-6 |
+| Starting update | Native history, retained AdamW | Prior gated history, retained AdamW | Native history, reset AdamW |
 |---|---:|---:|---:|
-| Full-gradient alignment | **90.28%** | 13/15 | 12/13 |
-| Training step | 83.33% | 13/15 | 12/13 |
+| 100 | −0.001116 | −0.001116 | −0.001612 |
+| 500 | +0.001491 | +0.001495 | +0.001637 |
 
-Alignment's primary advantage is **+6.94 percentage points**, but ordinary and non-near-zero accuracy are tied. It detects more helpful states at the cost of false positives. This is modest new-seed evidence, not a proven curriculum gain, statistical significance claim or independent-evaluation confirmation.
+Entries are **sustained auxiliary minus native reporting loss after 50 updates**;
+negative is helpful. All six seed-stream pairs at each age have the corresponding
+sign in each condition. The early history comparison is an exact matching control,
+and the reset study exactly replays the retained branches: these are not extra
+independent replications.
 
-![New-seed usefulness curves and frozen-rule scores.](experiment_results/clip_usefulness_prospective_2026-09/results/prospective_usefulness.png)
+- Prior auxiliary exposure is not necessary for later harm in this setting.
+- Resetting AdamW moments **and parameter step counters** does not remove it.
+- This does not identify representation geometry as the cause: weights, learning
+  rates and native-training exposure still differ between ages.
+- Reporting-loss effects do not establish retrieval gains. Original long-run CLIP
+  ablations found no final canonical R@1 win over baseline; policy effects remain
+  small and sensitive to the comparison and reporting setup.
 
-The [five-checkpoint development study](docs/clip-paired-intermediate.md) shows non-monotonic, seed-dependent usefulness. The [predictor screening](docs/clip-usefulness-predictors.md) motivated this test. The original [three-seed endpoint comparison](docs/clip-paired-seed-replication.md) remains archived separately; endpoint replays are not additional independent seeds.
+The [latest report](docs/research-status-2026-10-03.md) contains the interaction
+contrasts, time course, per-seed results, R@1 and limitations. The
+[ledger](docs/experiment-ledger.md) includes the earlier negative results, partial
+run, replay controls and analyses rather than presenting only favorable findings.
 
-[Prospective findings and protocol](docs/clip-usefulness-prospective.md) · [720 new records and audit](experiment_results/clip_usefulness_prospective_2026-09/README.md) · [Intermediate evidence](experiment_results/clip_paired_intermediate_2026-09/README.md) · [Screening evidence](experiment_results/clip_usefulness_predictors_2026-09/README.md)
+## Research direction
 
-## Earlier evidence
+The central object is **conditional intervention utility**: the change in a specified
+reporting objective produced by a generated training signal, relative to a matched
+native continuation, at a fixed horizon. State includes more than training step:
+model parameters, optimizer state, schedule and training history can all matter.
 
-The [13-epoch early-pulse intervention](docs/clip-early-pulse.md) adds synthetic pressure for 100 updates, then switches it off. Final canonical average R@1 is **1.631% vs 1.614%** for baseline (+0.017 percentage points, a net two retrieval successes), while species accuracy falls **0.259 points**. Thus an early one-step benefit has not translated into a convincing overall training gain. [Training differences](docs/figures/clip_early_pulse_differences.png).
+The next proposed diagnostic crosses early/later native weights with controlled
+learning-rate trajectories under freshly initialized AdamW. It is **proposed, not
+implemented or run**. The broader program must subsequently test multiple generator
+rules, prediction using separate meta data, transfer to unseen states/tasks, and
+equal-budget comparisons against stored-example alternatives. See the
+[research program and falsification criteria](docs/research-program.md).
 
-The [original CLIP study](docs/clip-experiments.md) compares eight 50-epoch arms: baseline finishes at **1.968%** canonical average R@1, versus **1.907%** for uniform top-8 and **1.942%** for hardest-real at maximum α=0.5. Every arm's best species checkpoint is epoch zero. These longer-run values must not be directly ranked against the 13-epoch pulse values.
+## Repository map
 
-[Earlier ResNet-50 + DistilBERT experiments](docs/legacy-experiments.md) use a different architecture and SigLIP-style objective. They are historical evidence, not a controlled architecture comparison with CLIP.
+| Location | Purpose |
+|---|---|
+| [`model/clip_training.py`](model/clip_training.py), [`src/`](src/) | Construction rules, objectives, matched-branch experiments |
+| [`configs/`](configs/), [`tests/`](tests/) | Frozen protocols, replay references and local tests |
+| [`colabs/`](colabs/) | Versioned pasteable experiment cells and runners |
+| [`experiment_results/`](experiment_results/README.md) | Small numerical evidence, manifests, historical source snapshots and audits |
+| [`scripts/`](scripts/) | Bundle builders, CPU analyses and evidence verifiers |
+| [`docs/experiment-ledger.md`](docs/experiment-ledger.md) | Study-by-study questions, results and claim boundaries |
 
-## Run and reproduce
+Protocol documents/source overlays retain their original preparation-time wording.
+For current completion status, use the ledger and dated results—not an old “next
+run” paragraph. Original inputs are not rewritten to fit the current interpretation.
 
-Requires Python 3.12+; GPU experiments use A100 Colab runtimes. See [setup and commands](docs/running-experiments.md), [Colab runners](colabs/), and each study's protocol. The [frozen-rule new-seed cell](colabs/clip_usefulness_prospective_one_cell.py) uses **no Drive writes**; newer transfer, gated, exposure-matched, and checkpoint-diagnostic launchers use verified Drive backups. Check the experiment's completion marker and final Drive flush, not just the launcher's status. Packaged protocols retain their preparation-time status; the dated consolidated record and evidence READMEs report completed outcomes.
+## Run and verify
 
 ```bash
 uv sync
-uv run python -m src.clip_train --config configs/hf_cub200_clip_vit_b32_baseline.yaml
+uv run --with pytest python -m pytest -q
+uv run python -m scripts.archive_clip_october_evidence --verify-only
 ```
 
-Code: [CLIP objectives](model/clip_training.py), [training and diagnostics](src/), [configs](configs/), [tests](tests/). Evidence: [original CLIP archive](experiment_results/clip_2026-08-30_to_09-01/README.md), [curriculum studies](experiment_results/clip_curriculum_2026-09/README.md), [figures](docs/figures/README.md), [chronological logs](experiment_logs/).
+Generic local dependencies are not the historical GPU replay environment. Recent
+Colab studies require the issued cell's exact package and A100 checks, including
+`torch 2.11.0+cu128` / `torchvision 0.26.0+cu128`; `cu130` is not an interchangeable
+replay environment. Do not disable those guards or rerun completed studies blindly.
 
-Paper in preparation. The [original OT proposal](https://github.com/akashm776/ot-paper) records the initial hypotheses; conclusions now follow the experiments above.
+Public exports omit checkpoint tensors, raw captions/images and endpoint NPZ caches.
+Clone-only verification checks retained evidence and paired-history arithmetic;
+recomputing cache metrics requires the original downloaded runs. See
+[verification scope and commands](docs/evidence-and-reproduction.md).
