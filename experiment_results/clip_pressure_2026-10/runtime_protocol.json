@@ -1,0 +1,213 @@
+{
+  "experiment": "clip_pressure_v1",
+  "training_seeds": [
+    271828,
+    161803,
+    141421
+  ],
+  "checkpoint_steps": [
+    100,
+    500
+  ],
+  "stream_seeds": [
+    2026100101,
+    2026100102
+  ],
+  "previous_stream_seeds": [
+    2026092402,
+    2026092601,
+    2026092602,
+    2026093002,
+    2026093003
+  ],
+  "arms": [
+    {
+      "name": "native",
+      "construction": null,
+      "coefficient": 0.0
+    },
+    {
+      "name": "historical_hard",
+      "construction": "hard",
+      "coefficient": 0.06005351588542947
+    },
+    {
+      "name": "historical_semihard",
+      "construction": "semihard",
+      "coefficient": 0.06005351588542947
+    },
+    {
+      "name": "hard_low",
+      "construction": "hard",
+      "target_ratio": 0.02,
+      "coefficient": "frozen_training_only_calibration"
+    },
+    {
+      "name": "semihard_low",
+      "construction": "semihard",
+      "target_ratio": 0.02,
+      "coefficient": "frozen_training_only_calibration"
+    },
+    {
+      "name": "hard_high",
+      "construction": "hard",
+      "target_ratio": 0.07,
+      "coefficient": "frozen_training_only_calibration"
+    },
+    {
+      "name": "semihard_high",
+      "construction": "semihard",
+      "target_ratio": 0.07,
+      "coefficient": "frozen_training_only_calibration"
+    }
+  ],
+  "horizon": 50,
+  "batch_size": 64,
+  "coefficient": 0.06005351588542947,
+  "alignment_threshold": 0.030847286945687016,
+  "scheduler_horizon": 3850,
+  "trunk_updates": 500,
+  "trunk_gate_refresh_steps": [],
+  "gate_refresh_offsets": [],
+  "observation_steps": [
+    0,
+    1,
+    5,
+    10,
+    25,
+    50
+  ],
+  "permutation_seed": 2026100103,
+  "report_split_seed": 2026100104,
+  "report_size": 512,
+  "original_train_size": 5994,
+  "old_holdout_size": 1024,
+  "frozen_probe_size": 1024,
+  "new_training_size": 4458,
+  "expected_batches_per_epoch": 69,
+  "primary": "mean_over_targets_Q_at_weight500_horizon50",
+  "trunk_optimizer_steps": 1500,
+  "branch_optimizer_steps": 4200,
+  "optimizer_step_budget": 5700,
+  "rules_refitted": false,
+  "report_controls_treatment": false,
+  "new_training_seeds": false,
+  "fresh_reporting_split_for_this_run": false,
+  "independent_test_set": false,
+  "new_external_dataset": false,
+  "historically_unused_images_claimed": false,
+  "literal_training_loader_resume": false,
+  "exploratory_followup": true,
+  "starting_state_history": "native_only",
+  "trunk_coefficient": 0,
+  "trunk_probes": false,
+  "secondary_contrast": "absolute_native_control_effects_real_regime_interaction_timecourse_retrieval",
+  "parent_experiment": "clip_weight_lr_v1",
+  "parent_bundle_id": "85abe879f99d6411f710186e35ef404a9708a5e488745e67710fb63615739700",
+  "shared_design_with_parent": true,
+  "common_stream_checkpoint_step": 100,
+  "reset_moments": true,
+  "reset_parameter_step_counters": true,
+  "external_scheduler_source": "fixed_checkpoint_100",
+  "restart_warmup": false,
+  "common_batches_captions_rng_across_weights_and_lrs": true,
+  "common_caption_epoch": "checkpoint_100_epoch",
+  "common_rng": "checkpoint_100_rng",
+  "native_trunk_exact_replay_required": true,
+  "native_reference_sha256": "8ac9fd614bb18c148f647b404c3a8536d0c4d62129fa200ef83657d5397c3e8b",
+  "reference_sha256": "bad4069efccf6624070899a7021ccc8e0e235ea0a131ebce5d9138159c7037d4",
+  "fixed_lr_checkpoint_step": 100,
+  "support_size": 8,
+  "semihard_start_rank": 16,
+  "rank_population": "all_non_diagonal_images_in_current_batch",
+  "negative_margin_filter": false,
+  "tie_rule": "legacy_top8_then_stable_index_order_on_remainder",
+  "real_rule": "highest_similarity_in_corresponding_support_lowest_index_tie",
+  "pressure_probe_offsets": [
+    0,
+    10,
+    25,
+    49
+  ],
+  "pressure_matched": false,
+  "fixed_lr_replay_required": true,
+  "reports_select_difficulty": false,
+  "pressure_controls_coefficient": false,
+  "status": "protocol_frozen_not_implemented_not_run",
+  "chosen_after_experiment_b_results": true,
+  "parent_run": "clip_difficulty_20261007T114311_800923Z",
+  "fresh_adamw_moments_and_counters": true,
+  "common_rng_source_step": 100,
+  "continuation_plan": "parent_common_branch_plans",
+  "caption_epoch": "native_checkpoint_100_epoch_for_seed",
+  "selection_rule": "exact_experiment_b_including_ties_and_no_margin_filter",
+  "target_ratios": [
+    0.02,
+    0.07
+  ],
+  "calibration": {
+    "plan": "configs/clip_pressure_calibration_plan.json",
+    "batches_per_seed": 4,
+    "batch_size": 64,
+    "auxiliary_gradient_coefficient": 1.0,
+    "parameters": "all_trainable",
+    "precision": "same_training_forward_and_losses_as_B",
+    "aggregate": "mean_of_individual_auxiliary_norm_over_native_norm_ratios",
+    "coefficient_formula": "rho / mean_batch_ratio",
+    "minimum_individual_gradient_norm_exclusive": 1e-12,
+    "weighted_gradient_verification_relative_tolerance": 0.05,
+    "save_all_individual_norms_and_ratios": true,
+    "preserve_all_training_state": true,
+    "persist_both_weight_calibrations_before_continuations_for_seed": true,
+    "coefficient_fixed_over_horizon": true,
+    "coefficient_shared_across_streams": true,
+    "automatic_clipping_or_recalibration": false
+  },
+  "replay": {
+    "before_calibrated_branches_at_each_seed_stream_weight": true,
+    "parent_arm_mapping": {
+      "native": "native",
+      "historical_hard": "synthetic_hard",
+      "historical_semihard": "synthetic_semihard"
+    },
+    "exact_report_points_and_state_hashes_and_core_traces": true,
+    "automatic_retry": false
+  },
+  "analysis": {
+    "D": "arm_minus_matched_native_loss",
+    "Q": "D_semihard_minus_D_hard_at_common_target",
+    "primary": "mean_over_targets_Q_at_weight500_horizon50",
+    "primary_horizon": 50,
+    "secondary": [
+      "each_target_late_Q",
+      "G_rho=late_Q_0.07_minus_late_Q_0.02",
+      "each_target_early_Q",
+      "each_target_late_Q_minus_early_Q",
+      "I=mean_over_targets_late_Q_minus_early_Q",
+      "all_arm_vs_native_effects",
+      "earlier_horizons",
+      "reporting_pool_bidirectional_R1_percentage_points",
+      "pressure_drift_and_candidate_geometry"
+    ],
+    "averaging": "streams_within_seed_then_equal_seeds",
+    "independent_training_seed_count": 3,
+    "significance_or_equivalence_claims": false
+  },
+  "budget": {
+    "trunk_optimizer_steps": 1500,
+    "branch_optimizer_steps": 4200,
+    "total_optimizer_steps": 5700,
+    "branches": 84,
+    "historical_replay_branches": 36,
+    "calibrated_branches": 48,
+    "point_records": 504,
+    "pressure_records": 336,
+    "endpoint_caches": 84,
+    "calibration_optimizer_steps": 0,
+    "probe_optimizer_steps": 0
+  },
+  "new_reporting_pool": false,
+  "online_coefficient_adaptation": false,
+  "learned_selector": false,
+  "claim_scope": "initial mean training-calibration gradient-norm targets; not matched groups, AdamW updates, clipping or trajectories"
+}

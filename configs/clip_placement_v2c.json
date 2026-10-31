@@ -1,0 +1,77 @@
+{
+  "reference_root": "configs/clip_placement_v2a_reference",
+  "reference_files": {
+    "acceptance.json": "2abc72059470852bc31d24f2f6e65bcde015e95a992c7d1219c36f6158de6574",
+    "index.json": "650b22f4bb61520d8c70a34519bf0844fb93c48dd38f1ed36f10e8a01b07eb84",
+    "run_config.json": "810d2fdc5332ae5f9ecbe7fa7e7d4cd53713216d74fdbc607dd7e9fc6343e3f2",
+    "checks/c747000ea27464fc66ba58c80cc63686e00ffb7df320d69f15e5de5f3ff4393b.json": "d797c47e507ae499bac78091d6b02abc3c1f5d1a903720274525a5a7360de3eb"
+  },
+  "original_design": "configs/clip_placement_preflight.json",
+  "environment_revision": {
+    "parent_specification_sha256": "df742458a39c0d51bfc5afaefb1c97d5d0885e0dc5661062fc2b6b0f60f7b6be",
+    "parent_bundle_sha256": "4c2dfad8a3235db34b92528953f95d35cf1e904259583d06d7814b3f3346ee8c",
+    "reason": "Original v2a attempt 20261031T132930_374691Z was INVALID before model execution: Colab Python patch/build changed.",
+    "required_python_version": [
+      3,
+      13,
+      16
+    ],
+    "required_python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+    "unchanged": "All other recorded v1 environment fields, all experimental inputs, head implementation, thresholds and exact observable reproduction gate.",
+    "limitation": "Exact first-batch observable reproduction is required; it does not establish general Python-build equivalence."
+  },
+  "experiment": "clip_placement_v2c_calibration",
+  "scope": "Six seed/state calibration cells only; not full-population acceptance",
+  "gradient_reference": {
+    "root": "configs/clip_placement_v2c_reference",
+    "files": {
+      "acceptance.json": "5355bf31a8e0eaa67aa19487df0ce9eaa553f77854e418ed9fca08d4c5832720",
+      "run_config.json": "7d1fdcf285abacbd3265eaf8b2b6f1b16f65024ba015f93acaaf3563e005f26b",
+      "index.json": "f28643883d2a739b8077355b58767b037cd43aff0ede28bbc700a67a41ca47bb",
+      "checks/6e019efc106a46d1f939bac9f9ac7e22c586659c2aaddf926939073441ed9729.json": "176211576113f125bd7fe71d5b893527c1bfd56bca7dff725f55c411104153ae"
+    },
+    "contract_sha256": "18788d25da8d526141fd77429f444253ed86893669a25d24f583696aa3252df2"
+  },
+  "training_seeds": [
+    271828,
+    161803,
+    141421
+  ],
+  "checkpoint_steps": [
+    100,
+    500
+  ],
+  "arms": [
+    "H-Uniform",
+    "Wrong",
+    "Boundary",
+    "Correct"
+  ],
+  "calibration_batches": 4,
+  "target_ratio": 0.02,
+  "calibration_relative_tolerance": 0.05,
+  "coefficient_rule": "rho / empirical mean of four scheduled unweighted gradient-norm ratios; empty contributes zero; no cap or refit",
+  "verification_rule": "Fresh restored forwards and weighted autograd replay; same native norm/loss and placement observables exactly",
+  "sharing": "One coefficient per seed/state/arm, shared across continuation streams; frozen for later 50-step branches",
+  "scoring_rule": "cast live features/candidates to FP32 without renormalization; autocast and TF32 off, highest float32 matmul precision; one native matrix and transpose",
+  "scale_rule": "one current-run original scale tensor; FP32 cast for head multiplication, live native connection, detached auxiliary scale; auxiliary similarities remain live",
+  "carrier_rule": "one original D1 H_Synth call under unchanged D1 autocast, before head fork",
+  "target_rule": "one unchanged v1 detached geometry construction and one ST candidate per arm shared by both heads",
+  "empty_rule": "Native full batch; differentiable scale-disconnected auxiliary zero; cosine undefined",
+  "statuses": [
+    "PASS",
+    "FAIL",
+    "INVALID",
+    "INCOMPLETE"
+  ],
+  "optimizer_updates": 0,
+  "virtual_optimizer_updates": 0,
+  "launch_d2": false,
+  "precision_contract": "All original geometry/similarity/logit/separation tolerances unchanged; checked before calibration gradients",
+  "next_stage": "Full-population D2-P v2 audit",
+  "limitation": "Calibration validates initial scheduled raw pressure only; not optimizer displacement, future feasibility or utility",
+  "training_seed": 271828,
+  "stream_seed": 2026100101,
+  "weight_step": 100,
+  "batch_offset": 0
+}

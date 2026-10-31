@@ -1,6 +1,8 @@
 # Experiment ledger
 
-Status as of **October 3, 2026**. This is the current index for the
+Evidence and completion status as of **October 31, 2026**.
+[Paper-style report](../README.md) · [Current progress](current-progress.md).
+This is the current index for the
 [SCSS research program](research-program.md), formerly OTCO. Issued protocols
 retain their preparation-time wording; completion status below takes precedence
 over old “next experiment” text. Results are not selected for favorable outcomes.
@@ -64,12 +66,94 @@ The final four rows reuse the same three seeds and reporting design. Reset-study
 retained branches are replay controls, not extra evidence units. Twelve matched
 sets per run are three seeds × two ages × two streams, not twelve independent seeds.
 
-## 6. Proposed—not implemented or run
+## 6. Weight-state × external LR control
 
-The next proposed mechanism study crosses early/later native weights with LR
-trajectories under fresh AdamW. A generator family, meta-only utility prediction,
+[Weight-state x LR experiment A](clip-weight-lr.md) is **completed and verified**.
+It crosses native
+weights 100/500 with LR trajectories 100/500 and native/sustained objectives under
+fresh AdamW, sharing processed batches/captions/RNG across all cells. Budget:
+1,500 native trunk plus 2,400 branch updates. Primary analysis: weight and LR main
+effects and their interaction on sustained-minus-native loss at horizon 50.
+
+Early weights: −0.00161221 under early LR, −0.00154085 under later LR. Later
+weights: +0.00175803 under early LR, +0.00176398 under later LR. All six pairs
+share each cell's sign. Weight main effect +0.00333753, LR +0.00003865,
+interaction −0.00006540. The sign follows weights under these two modestly
+different LR segments; no general LR-irrelevance or geometry-causation claim.
+Seeds/reporting pool are reused, and the early diagonal is historical replay.
+[Verified archive](../experiment_results/clip_weight_lr_2026-10/README.md) ·
+[Per-seed results, retrieval and limits](research-status-2026-10-07.md).
+
+A generator family, meta-only utility prediction,
 storage/data-efficiency comparisons and external transfer tests follow in the
 [research agenda](research-program.md). None is presented here as a result.
+
+## 7. Difficulty regimes — completed
+
+[Experiment B](clip-difficulty.md) compares native, hard-real, semi-hard-real,
+hard synthetic top-8 and semi-hard synthetic ranks 16–23 at weights 100/500.
+All ten branches in each seed/stream share early LR, fresh AdamW, continuation
+inputs and RNG. Hard/semi supports are disjoint, with actual margins and
+training-only gradient-pressure probes recorded. Fixed coefficient is not
+pressure matching. Native/hard-synthetic branches must replay Experiment A's
+early-LR cells at both weights. Budget: **4,500 optimizer updates**, sixty branches.
+Primary late-minus-early synthetic semi-hard-minus-hard loss effect:
+**−0.00110136**, negative in all three seed means and six stream contrasts.
+Semi-hard synthetic is less harmful later (+0.00041808 versus +0.00175803),
+but still harmful in all six pairs. It also has the better early aggregate effect
+at horizon 50, so the primary endpoint is not a hard-to-semi-hard crossover.
+Shorter secondary horizons do show an aggregate crossover. Real-negative controls
+have the opposite interaction (+0.00018804). Semi-hard applies substantially lower
+gradient pressure; no pressure-independent geometry explanation or retrieval win.
+[Verified archive](../experiment_results/clip_difficulty_2026-10/README.md) ·
+[Full result and limits](research-status-2026-10-07-difficulty.md).
+
+## 8. Initial pressure calibration — completed
+
+[Experiment C](clip-pressure.md) freezes hard/semi-hard synthetic construction ×
+2%/7% initial mean auxiliary/native gradient-norm targets, native control and two
+historical replay arms. Calibration is deterministic, training-only, unweighted
+at alpha = 1, with per-batch records; resulting coefficients stay fixed during
+continuation. The primary is the mean later semi-minus-hard effect across targets;
+construction × pressure, weight-state interaction and absolute native comparisons
+are prespecified separately. Budget: **5,700 optimizer updates**, 84 branches.
+Calibration membership and protocol files retain their original local checksum
+pins. All calibration checks and native/historical B replays passed; 84 endpoint
+caches were recomputed. Primary later mean semi-minus-hard loss effect:
+**−0.0003773937**, negative in 3/3 seed means and 5/6 stream contrasts. Later
+semi-hard wins at 7% in all six streams but at 2% in only three. The construction ×
+pressure interaction is **−0.0006161545**, negative in all six. Every calibrated
+late arm still harms in aggregate and each seed mean; semi-hard-low helps in only
+one individual continuation. Weight-state interactions are weaker and mixed.
+Initial calibration is accurate, but later pressure diverges and all branch
+updates clip; this does not isolate geometry or establish reliable retrieval gains.
+[Verified archive](../experiment_results/clip_pressure_2026-10/README.md) ·
+[Full result and limits](research-status-2026-10-08-pressure.md).
+
+## 9. D0 geometry and feasibility audit — completed and verified
+
+The [frozen D0 protocol](clip-geometry-audit.md) completed through an explicitly
+verified recovery: 166 saved forwards reused plus 458 new forwards, for 624 total
+and 39,936 query exposures. All three seeds and both weight states are present.
+Audit updates/backward/virtual steps and reporting evaluations are zero. Native
+preparation cost 1,500 updates in recovery plus 500 in the interrupted attempt;
+repeated preparation is not additional evidence.
+
+Extended zero-nonpositive rates are 19.19% early and 26.92% later. At k=8, common
+C/I eligibility falls from 36.10% to 25.42%, and only 22.47% of exposures are
+eligible at both states. No tested k can support an all-query I treatment.
+Ideal C uniform mixtures cross to nonpositive margins in 96.44% early / 87.97%
+later of feasible queries. The source regimes and generated geometry must be
+distinguished; no training utility or curriculum crossover was measured.
+
+All 2,668 inventory files and 118 source members verify. Selected aggregate
+statistics were recomputed from raw records; no invalid mixtures or applicable
+I-Synth invariant violations were found. The original partial archive remains
+unchanged, and its observations are counted once in the completed grid.
+D1 was subsequently frozen and implemented; see entry 10 below.
+
+[Full interpretation](research-status-2026-10-09-geometry.md) ·
+[Evidence and verification scope](../experiment_results/clip_geometry_audit_2026-10/README.md).
 
 ## Reading the history responsibly
 
@@ -77,4 +161,72 @@ The [September 24 record](research-status-2026-09-24.md), [defense workbook](res
 and [background plan](research-study-plan.md) preserve the earlier reasoning and
 OT-specific questions. Original proposal language is not evidence of what worked.
 See [verification scope](evidence-and-reproduction.md) for exact reproducibility
-boundaries, and the [latest report](research-status-2026-10-03.md) for current claims.
+boundaries, and the [current progress](current-progress.md) and [report results](paper/results.md) for current claims.
+
+## 10. D1 common-population source regimes — completed October 16
+
+[Protocol](clip-source-regime.md) · [Colab run instructions](clip-source-regime-run.md).
+
+D0-derived k=2 eligibility is intersected across both states and frozen per
+exposure: 10,667/19,200 continuation exposures and 416/768 calibration exposures.
+All batches have at least 26 eligible queries. H/M/C/I supports and their Select
+representatives are frozen from the starting-state D0 records; embeddings evolve.
+Native CLIP uses every query. Nine branches use a common masked auxiliary
+objective, with eight separately calibrated coefficients targeting 2% initial
+mean raw gradient pressure. Budget: 1,500 native preparation + 5,400 continuation
+updates, plus state-preserving diagnostics.
+
+The single primary estimand is the late-minus-early C-Select minus I-Select
+reporting-loss contrast at 50 updates. Uniform-Synth comparisons are secondary.
+This is conditional on common eligible training exposures, measured on the full
+reporting pool. The completed archive contains all 108 branches. All eight early
+aggregate loss effects improve on native, and all eight late effects worsen it.
+Early Synth beats the specified Select control in all four regimes for each seed
+mean. The primary side interaction is +0.000128312, with mixed seed signs; it does
+not establish the proposed C/I curriculum. All early aggregate R@1 changes are
+negative. [Completed interpretation](research-status-2026-10-16-source-complete.md)
+· [Comparison data](../experiment_results/clip_source_complete_2026-10-16/comparison.json).
+
+The following entries preserve the operational history preceding completion.
+
+D1 execution update (2026-10-14): [automatic resume](clip-source-resume.md) is
+implemented as a separate source bundle. It preserves the frozen scientific
+protocol and original delivery, saves native state every 25 updates and branch
+state every 10 updates, reuses completed branches/calibrations, and authenticates
+old-run migration. Checkpoint I/O is not a new treatment or independent evidence.
+
+D1 startup repair (reported 2026-10-15): the [replacement launcher](clip-source-resume-bootstrap.md)
+installs dependencies before starting a fresh worker. This addresses an optional
+chat-template lookup failure after the original worker mixed imported Hub modules
+with newly installed package files. The issued source bundle and resume identity
+are unchanged; this is an execution repair, not new experimental evidence.
+
+D1 storage amendment (2026-10-15): at the user's request, the
+[latest-only launcher](clip-source-latest.md) removes older resume generations
+and abandoned uploads while retaining the latest required states and completed
+results. It keeps the issued payload/contract compatible and records its storage
+policy separately. Training and estimands are unchanged.
+
+D1 lease-read repair (2026-10-15): a missing `resume_lease.json` stopped the
+final seed's second stream. The [new operational launcher](clip-source-lease-repair.md)
+serializes heartbeat writes and checks and retries transient missing-file reads.
+Persistent absence and changed ownership still stop execution. This preserves
+latest-only storage, the issued checkpoint identity and scientific operations.
+
+## 11. D2 placement execution contract — validation only
+
+| Stage | Status | Evidence and scope |
+|---|---|---|
+| Original D2-P v1 | FAIL | First Wrong mixed-precision margin check fails. Later offline analysis diagnoses inconsistent native/auxiliary scoring paths. [Report](../experiment_results/clip_placement_preflight_failure_2026-10-18/REPORT.md). |
+| v2a original environment | INVALID | Python-version gate stops before the paired diagnostic; not a scientific treatment failure. |
+| v2a, explicit Python 3.13.16 amendment | PASS | Same-input first-batch comparison under consistent FP32 scoring. [Report](../experiment_results/clip_placement_v2a_2026-10-31/REPORT.md). |
+| v2b | PASS | 306 recorded candidate-logit VJP checks and scale-path checks. [Report](../experiment_results/clip_placement_v2b_2026-10-31/REPORT.md). |
+| v2c | PASS | 24 calibrated coefficients in six seed/state cells; scheduled mean pressure 1.996835%–2.001782%. [Report](../experiment_results/clip_placement_v2c_2026-10-31/REPORT.md). |
+| Full-population D2-P v2 | Pending | No acceptance record for all continuation exposures yet. |
+| D2 utility comparison | Not launched | No placement training result or retrieval claim. |
+
+These stages committed zero optimizer updates. The saved-artifact auditors verify
+recorded evidence; they are not independent GPU-gradient recomputations. The new
+FP32 head changes the numerical regime: Native and H-Uniform controls for eventual
+D2 training must use that regime, and H-Uniform has been recalibrated in v2c.
+[Validation appendix](paper/numerical-validation.md) · [Current progress](current-progress.md).

@@ -1,102 +1,46 @@
-# State-Conditioned Synthetic Supervision (SCSS)
+# State-Conditioned Synthetic Supervision
 
-**Reusable generators of training signals, evaluated by when they help a learner.**
+### When does a generated training signal help a learner?
 
-This research program asks whether some reliance on stored training examples can
-be replaced by stored **generation functions**: rules or learned generators that
-produce useful supervision for a model in a particular learning state. The aim is
-not simply to accumulate more synthetic examples, but to understand which generated
-signals to supply, when, at what strength, and for how long.
+**A living research report on synthetic-negative supervision in CLIP.**
 
-The current experimental test bed is synthetic negative construction in CLIP/CUB-200.
-It tests a prerequisite of that broader idea: **the same construction rule can help
-in one state and hurt in another**. We have not yet demonstrated a learned generator
-library, reduced data requirements, a general curriculum, or reliable retrieval gains.
+[Read the report](docs/paper/introduction.md) · [Current progress](docs/current-progress.md) · [Research ledger](docs/experiment-ledger.md) · [Reproduce the evidence](docs/paper/reproducibility.md)
 
-Formerly **OTCO: Optimal Transport Contrastive Learning**. OT weighting was an
-initial construction hypothesis, not an established advantage. Historical experiment
-IDs, source snapshots, Python project identifier and Colab Drive paths retain `otco`
-or `OTCO` for reproducibility. The repository URL is unchanged.
+## Abstract
 
-[Research program](docs/research-program.md) ·
-[Complete experiment ledger](docs/experiment-ledger.md) ·
-[Latest results and interpretation](docs/research-status-2026-10-03.md) ·
-[Reproduce and verify](docs/evidence-and-reproduction.md)
+Synthetic supervision is useful only if it improves the learner receiving it. We study this dependence through matched continuations of a pretrained CLIP model on CUB image–text data. History, optimizer-reset, learning-rate, difficulty, and pressure controls show that additional negative supervision can improve early reporting loss while worsening it at later starting states. In the completed source-controlled study, all eight interventions improve early aggregate loss and worsen it late; two-source synthesis beats its corresponding real-negative control early in all four source regimes. However, the proposed source-side curriculum is inconsistent, and early aggregate retrieval changes are negative. These findings motivate direct tests of candidate placement, whose numerical, gradient, and calibration stages have passed but whose full-population audit and training experiment remain pending. The evidence supports conditional loss utility in this development setting, not a general retrieval improvement or a validated curriculum.
 
-## What the evidence currently says
+![D1: reporting-loss and retrieval effects after 50 updates](docs/figures/d1_research_summary.svg)
 
-As of **October 3, 2026**, the strongest result is a controlled early/later contrast
-in short matched continuations—not an overall synthetic-data performance win.
-The latest studies use three paired training seeds, two continuation streams,
-and a reused 512-image reporting pool. Streams are not independent training seeds.
+**Figure 1.** Effects relative to native training at early and late starting states. Diamonds are equal-seed means; circles are individual seed means, each averaged over two continuation streams. Lower loss and higher R@1 are preferred. Loss improvements need not imply retrieval improvements. [Results and interpretation](docs/paper/results.md) · [Exact values](docs/paper/detailed-results.md).
 
-| Starting update | Native history, retained AdamW | Prior gated history, retained AdamW | Native history, reset AdamW |
-|---|---:|---:|---:|
-| 100 | −0.001116 | −0.001116 | −0.001612 |
-| 500 | +0.001491 | +0.001495 | +0.001637 |
+## Contents
 
-Entries are **sustained auxiliary minus native reporting loss after 50 updates**;
-negative is helpful. All six seed-stream pairs at each age have the corresponding
-sign in each condition. The early history comparison is an exact matching control,
-and the reset study exactly replays the retained branches: these are not extra
-independent replications.
+| Section | What it covers |
+|---|---|
+| [1. Introduction](docs/paper/introduction.md) | Motivation, questions, and the scope of the contribution |
+| [2. Related Work](docs/paper/related-work.md) | Recent negative-selection, curriculum, synthesis, and data-utility literature |
+| [3. Problem Formulation](docs/paper/formulation.md) | Conditional utility, construction rules, and placement policies |
+| [4. Experimental Setup](docs/paper/setup.md) | Data, matched controls, calibration, metrics, and replication units |
+| [5. Results](docs/paper/results.md) | Completed findings, including negative results and retrieval discrepancies |
+| [6. Discussion](docs/paper/discussion.md) | What the controls resolve and what remains unexplained |
+| [7. Limitations](docs/paper/limitations.md) | Reused development data, effect sizes, generalization, and identification |
+| [8. Conclusion](docs/paper/conclusion.md) | Supported conclusions and outstanding questions |
+| [References](docs/paper/references.md) | Primary sources, emphasizing relevant 2024–2026 work |
 
-- Prior auxiliary exposure is not necessary for later harm in this setting.
-- Resetting AdamW moments **and parameter step counters** does not remove it.
-- This does not identify representation geometry as the cause: weights, learning
-  rates and native-training exposure still differ between ages.
-- Reporting-loss effects do not establish retrieval gains. Original long-run CLIP
-  ablations found no final canonical R@1 win over baseline; policy effects remain
-  small and sensitive to the comparison and reporting setup.
+### Appendices
 
-The [latest report](docs/research-status-2026-10-03.md) contains the interaction
-contrasts, time course, per-seed results, R@1 and limitations. The
-[ledger](docs/experiment-ledger.md) includes the earlier negative results, partial
-run, replay controls and analyses rather than presenting only favorable findings.
+[A. Detailed results](docs/paper/detailed-results.md) · [B. Placement validation](docs/paper/numerical-validation.md) · [C. Claim-to-evidence index](docs/paper/evidence.md) · [D. Reproducibility](docs/paper/reproducibility.md)
 
-## Research direction
+### Research workspace
 
-The central object is **conditional intervention utility**: the change in a specified
-reporting objective produced by a generated training signal, relative to a matched
-native continuation, at a fixed horizon. State includes more than training step:
-model parameters, optimizer state, schedule and training history can all matter.
-
-The next proposed diagnostic crosses early/later native weights with controlled
-learning-rate trajectories under freshly initialized AdamW. It is **proposed, not
-implemented or run**. The broader program must subsequently test multiple generator
-rules, prediction using separate meta data, transfer to unseen states/tasks, and
-equal-budget comparisons against stored-example alternatives. See the
-[research program and falsification criteria](docs/research-program.md).
-
-## Repository map
+[Current progress](docs/current-progress.md) summarizes completed and pending work. The [research ledger](docs/experiment-ledger.md) preserves the study history; the [research agenda](docs/research-program.md) describes the longer-term objective. The [Colab guide](colabs/README.md) separates current validation entry points from historical launchers.
 
 | Location | Purpose |
 |---|---|
-| [`model/clip_training.py`](model/clip_training.py), [`src/`](src/) | Construction rules, objectives, matched-branch experiments |
-| [`configs/`](configs/), [`tests/`](tests/) | Frozen protocols, replay references and local tests |
-| [`colabs/`](colabs/) | Versioned pasteable experiment cells and runners |
-| [`experiment_results/`](experiment_results/README.md) | Small numerical evidence, manifests, historical source snapshots and audits |
-| [`scripts/`](scripts/) | Bundle builders, CPU analyses and evidence verifiers |
-| [`docs/experiment-ledger.md`](docs/experiment-ledger.md) | Study-by-study questions, results and claim boundaries |
+| [Source](src/) and [CLIP training](model/clip_training.py) | Objectives, constructions, and controlled experiments |
+| [Configurations](configs/) and [tests](tests/) | Protocols, references, and implementation checks |
+| [Evidence archives](experiment_results/README.md) | Numerical results, audits, and historical snapshots |
+| [Scripts](scripts/) | Evidence analysis and reproducible figure generation |
 
-Protocol documents/source overlays retain their original preparation-time wording.
-For current completion status, use the ledger and dated results—not an old “next
-run” paragraph. Original inputs are not rewritten to fit the current interpretation.
-
-## Run and verify
-
-```bash
-uv sync
-uv run --with pytest python -m pytest -q
-uv run python -m scripts.archive_clip_october_evidence --verify-only
-```
-
-Generic local dependencies are not the historical GPU replay environment. Recent
-Colab studies require the issued cell's exact package and A100 checks, including
-`torch 2.11.0+cu128` / `torchvision 0.26.0+cu128`; `cu130` is not an interchangeable
-replay environment. Do not disable those guards or rerun completed studies blindly.
-
-Public exports omit checkpoint tensors, raw captions/images and endpoint NPZ caches.
-Clone-only verification checks retained evidence and paired-history arithmetic;
-recomputing cache metrics requires the original downloaded runs. See
-[verification scope and commands](docs/evidence-and-reproduction.md).
+This is ongoing research, not a claim of conference publication. The project was formerly **OTCO**; historical paths retain that name. Optimal-transport weighting was an initial hypothesis, not an established advantage. Technical provenance and hashes are retained in the linked evidence archives.

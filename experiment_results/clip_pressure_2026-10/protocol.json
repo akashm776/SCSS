@@ -1,0 +1,158 @@
+{
+  "experiment": "clip_pressure_v1",
+  "status": "protocol_frozen_not_implemented_not_run",
+  "chosen_after_experiment_b_results": true,
+  "parent_run": "clip_difficulty_20261007T114311_800923Z",
+  "parent_bundle_id": "85abe879f99d6411f710186e35ef404a9708a5e488745e67710fb63615739700",
+  "training_seeds": [
+    271828,
+    161803,
+    141421
+  ],
+  "stream_seeds": [
+    2026100101,
+    2026100102
+  ],
+  "checkpoint_steps": [
+    100,
+    500
+  ],
+  "fixed_lr_checkpoint_step": 100,
+  "starting_state_history": "native_only",
+  "fresh_adamw_moments_and_counters": true,
+  "common_rng_source_step": 100,
+  "continuation_plan": "parent_common_branch_plans",
+  "caption_epoch": "native_checkpoint_100_epoch_for_seed",
+  "batch_size": 64,
+  "support_size": 8,
+  "semihard_start_rank": 16,
+  "selection_rule": "exact_experiment_b_including_ties_and_no_margin_filter",
+  "arms": [
+    {
+      "name": "native",
+      "construction": null,
+      "coefficient": 0.0
+    },
+    {
+      "name": "historical_hard",
+      "construction": "hard",
+      "coefficient": 0.06005351588542947
+    },
+    {
+      "name": "historical_semihard",
+      "construction": "semihard",
+      "coefficient": 0.06005351588542947
+    },
+    {
+      "name": "hard_low",
+      "construction": "hard",
+      "target_ratio": 0.02,
+      "coefficient": "frozen_training_only_calibration"
+    },
+    {
+      "name": "semihard_low",
+      "construction": "semihard",
+      "target_ratio": 0.02,
+      "coefficient": "frozen_training_only_calibration"
+    },
+    {
+      "name": "hard_high",
+      "construction": "hard",
+      "target_ratio": 0.07,
+      "coefficient": "frozen_training_only_calibration"
+    },
+    {
+      "name": "semihard_high",
+      "construction": "semihard",
+      "target_ratio": 0.07,
+      "coefficient": "frozen_training_only_calibration"
+    }
+  ],
+  "target_ratios": [
+    0.02,
+    0.07
+  ],
+  "horizon": 50,
+  "observation_steps": [
+    0,
+    1,
+    5,
+    10,
+    25,
+    50
+  ],
+  "pressure_probe_offsets": [
+    0,
+    10,
+    25,
+    49
+  ],
+  "calibration": {
+    "plan": "configs/clip_pressure_calibration_plan.json",
+    "batches_per_seed": 4,
+    "batch_size": 64,
+    "auxiliary_gradient_coefficient": 1.0,
+    "parameters": "all_trainable",
+    "precision": "same_training_forward_and_losses_as_B",
+    "aggregate": "mean_of_individual_auxiliary_norm_over_native_norm_ratios",
+    "coefficient_formula": "rho / mean_batch_ratio",
+    "minimum_individual_gradient_norm_exclusive": 1e-12,
+    "weighted_gradient_verification_relative_tolerance": 0.05,
+    "save_all_individual_norms_and_ratios": true,
+    "preserve_all_training_state": true,
+    "persist_both_weight_calibrations_before_continuations_for_seed": true,
+    "coefficient_fixed_over_horizon": true,
+    "coefficient_shared_across_streams": true,
+    "automatic_clipping_or_recalibration": false
+  },
+  "replay": {
+    "before_calibrated_branches_at_each_seed_stream_weight": true,
+    "parent_arm_mapping": {
+      "native": "native",
+      "historical_hard": "synthetic_hard",
+      "historical_semihard": "synthetic_semihard"
+    },
+    "exact_report_points_and_state_hashes_and_core_traces": true,
+    "automatic_retry": false
+  },
+  "analysis": {
+    "D": "arm_minus_matched_native_loss",
+    "Q": "D_semihard_minus_D_hard_at_common_target",
+    "primary": "mean_over_targets_Q_at_weight500_horizon50",
+    "primary_horizon": 50,
+    "secondary": [
+      "each_target_late_Q",
+      "G_rho=late_Q_0.07_minus_late_Q_0.02",
+      "each_target_early_Q",
+      "each_target_late_Q_minus_early_Q",
+      "I=mean_over_targets_late_Q_minus_early_Q",
+      "all_arm_vs_native_effects",
+      "earlier_horizons",
+      "reporting_pool_bidirectional_R1_percentage_points",
+      "pressure_drift_and_candidate_geometry"
+    ],
+    "averaging": "streams_within_seed_then_equal_seeds",
+    "independent_training_seed_count": 3,
+    "significance_or_equivalence_claims": false
+  },
+  "budget": {
+    "trunk_optimizer_steps": 1500,
+    "branch_optimizer_steps": 4200,
+    "total_optimizer_steps": 5700,
+    "branches": 84,
+    "historical_replay_branches": 36,
+    "calibrated_branches": 48,
+    "point_records": 504,
+    "pressure_records": 336,
+    "endpoint_caches": 84,
+    "calibration_optimizer_steps": 0,
+    "probe_optimizer_steps": 0
+  },
+  "report_controls_treatment": false,
+  "independent_test_set": false,
+  "new_training_seeds": false,
+  "new_reporting_pool": false,
+  "online_coefficient_adaptation": false,
+  "learned_selector": false,
+  "claim_scope": "initial mean training-calibration gradient-norm targets; not matched groups, AdamW updates, clipping or trajectories"
+}

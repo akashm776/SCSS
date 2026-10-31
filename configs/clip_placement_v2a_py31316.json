@@ -1,0 +1,48 @@
+{
+  "experiment": "clip_placement_v2a_py31316",
+  "scope": "paired first-batch forward-only scoring-head diagnostic",
+  "reference_root": "configs/clip_placement_v2a_reference",
+  "reference_files": {
+    "acceptance.json": "2abc72059470852bc31d24f2f6e65bcde015e95a992c7d1219c36f6158de6574",
+    "index.json": "650b22f4bb61520d8c70a34519bf0844fb93c48dd38f1ed36f10e8a01b07eb84",
+    "run_config.json": "810d2fdc5332ae5f9ecbe7fa7e7d4cd53713216d74fdbc607dd7e9fc6343e3f2",
+    "checks/c747000ea27464fc66ba58c80cc63686e00ffb7df320d69f15e5de5f3ff4393b.json": "d797c47e507ae499bac78091d6b02abc3c1f5d1a903720274525a5a7360de3eb"
+  },
+  "source_zip_sha256": "64f2b813f045d419c2233fc66f0da6a7f0c46cea54bcd8a4e153e33a58e4ae20",
+  "original_design": "configs/clip_placement_preflight.json",
+  "training_seed": 271828,
+  "stream_seed": 2026100101,
+  "weight_step": 100,
+  "batch_offset": 0,
+  "reproduction_atol": 0.0,
+  "reproduction_rtol": 0.0,
+  "reproduction_rule": "exact equality of every archived placement field, including dtype and geometry; mismatches INVALID, no tolerance adaptation",
+  "scoring_rule": "cast live features/candidates to FP32 without renormalization; autocast and TF32 off, highest float32 matmul precision; one native matrix and transpose",
+  "scale_rule": "one current-run original scale tensor; FP32 cast for head multiplication, live native connection, detached auxiliary scale; auxiliary similarities remain live",
+  "carrier_rule": "one original D1 H_Synth call under unchanged D1 autocast, before head fork",
+  "target_rule": "one unchanged v1 detached geometry construction and one ST candidate per arm shared by both heads",
+  "precision_contract": "all v1 geometry/similarity/logit/separation thresholds unchanged",
+  "statuses": [
+    "PASS",
+    "FAIL",
+    "INCOMPLETE",
+    "INVALID"
+  ],
+  "gradient_validation": false,
+  "calibration": false,
+  "optimizer_updates": 0,
+  "launch_d2": false,
+  "environment_revision": {
+    "parent_specification_sha256": "df742458a39c0d51bfc5afaefb1c97d5d0885e0dc5661062fc2b6b0f60f7b6be",
+    "parent_bundle_sha256": "4c2dfad8a3235db34b92528953f95d35cf1e904259583d06d7814b3f3346ee8c",
+    "reason": "Original v2a attempt 20261031T132930_374691Z was INVALID before model execution: Colab Python patch/build changed.",
+    "required_python_version": [
+      3,
+      13,
+      16
+    ],
+    "required_python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+    "unchanged": "All other recorded v1 environment fields, all experimental inputs, head implementation, thresholds and exact observable reproduction gate.",
+    "limitation": "Exact first-batch observable reproduction is required; it does not establish general Python-build equivalence."
+  }
+}

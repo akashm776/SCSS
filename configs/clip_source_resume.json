@@ -1,0 +1,18 @@
+{
+  "execution_version": "clip_source_resume_v1",
+  "scientific_protocol": "clip_source_regime_v1",
+  "scientific_freeze_sha256": "c65026efd643e5be5bc8171ae2e2f1c6716b1063433caec82b19a08031d57dc9",
+  "authorization": "User requested automatic resumes, 2026-10-14; supersedes only no-checkpoint/no-automatic-resume execution rule",
+  "native_interval": 25,
+  "branch_interval": 10,
+  "checkpoint_at_native_states_and_branch_end": true,
+  "committed_generations_retained_per_phase": 2,
+  "corrupt_committed_checkpoint": "stop; no silent rollback",
+  "interrupted_uncommitted_upload": "use last committed pointer",
+  "calibration": "reuse complete sealed calibration; otherwise repeat training-only calibration",
+  "legacy": "preserve original folder, copy authenticated artifacts, reuse completed branches, replay unfinished branch from start",
+  "automatic_selection": "unique compatible run lineage; explicit run name only if ambiguous",
+  "runtime_disconnect": "rerun same cell after reconnecting; Colab runtime provisioning is external",
+  "scientific_failure": "block automatic retry; preserve diagnostics",
+  "primary_and_treatments_unchanged": true
+}

@@ -1,0 +1,3334 @@
+{
+  "points": {
+    "0": {
+      "report": {
+        "native_loss": 4.9486537520064955,
+        "partition_losses": {
+          "full512": [
+            4.9486537520064955
+          ]
+        },
+        "pool_retrieval": {
+          "text_to_image_r1_percent": 5.2734375,
+          "image_to_text_r1_percent": 6.4453125,
+          "mean_r1_percent": 5.859375
+        },
+        "features_sha256": "33f00386006d6d90f71b97c6e526ffc6f7a0c46fcd9f5c0200ad5962c5d5f9ad",
+        "learned_logit_scale": 99.99642944335938
+      },
+      "state_sha256": "58fbc467ed1ee2dc45d22a7ebea117a1d6f69fedb943733bc9209d2bb42667ba"
+    },
+    "1": {
+      "report": {
+        "native_loss": 4.945845957786101,
+        "partition_losses": {
+          "full512": [
+            4.945845957786101
+          ]
+        },
+        "pool_retrieval": {
+          "text_to_image_r1_percent": 5.2734375,
+          "image_to_text_r1_percent": 6.640625,
+          "mean_r1_percent": 5.95703125
+        },
+        "features_sha256": "5d73ca9c02e1d7c0a5c335072f13e5a579fa7753b5c0cbee96d116d61044e206",
+        "learned_logit_scale": 99.99633026123047
+      },
+      "state_sha256": "29f524a7649260516d7940d93e18d2f81ca71e2f059d83fe1e9a923fe2ab4f6c"
+    },
+    "5": {
+      "report": {
+        "native_loss": 4.937710714652243,
+        "partition_losses": {
+          "full512": [
+            4.937710714652243
+          ]
+        },
+        "pool_retrieval": {
+          "text_to_image_r1_percent": 5.46875,
+          "image_to_text_r1_percent": 6.8359375,
+          "mean_r1_percent": 6.15234375
+        },
+        "features_sha256": "5c7e2b44d54a1579e8ba84306a5f3ea7be1ba08ff9b8761c4c1557269a6e3a82",
+        "learned_logit_scale": 99.99600219726562
+      },
+      "state_sha256": "90b55dd299d156fa5683e6ea119a8cf5e0040321fbfb8e475360d839f9548793"
+    },
+    "10": {
+      "report": {
+        "native_loss": 4.919316224304045,
+        "partition_losses": {
+          "full512": [
+            4.919316224304045
+          ]
+        },
+        "pool_retrieval": {
+          "text_to_image_r1_percent": 5.078125,
+          "image_to_text_r1_percent": 7.2265625,
+          "mean_r1_percent": 6.15234375
+        },
+        "features_sha256": "211631b55d85bf4a0cf7ef23296941d24e8090c2df07296a4df1be81079662cf",
+        "learned_logit_scale": 99.99575805664062
+      },
+      "state_sha256": "aa9fae313a33c8d4e4230295a94169ccccc628c7a2ff7f31f8b2ebc47cdbe151"
+    },
+    "25": {
+      "report": {
+        "native_loss": 4.880462532049135,
+        "partition_losses": {
+          "full512": [
+            4.880462532049135
+          ]
+        },
+        "pool_retrieval": {
+          "text_to_image_r1_percent": 5.46875,
+          "image_to_text_r1_percent": 7.03125,
+          "mean_r1_percent": 6.25
+        },
+        "features_sha256": "9a564b5bc6e157931ae4019ffd8ccd39d544adb7cad10e4bdd57d4eded842a97",
+        "learned_logit_scale": 99.99518585205078
+      },
+      "state_sha256": "0e2310d526e46810413a5ae2cdb91580c7a96eed33b8fdca7b679773cd6aae25"
+    },
+    "50": {
+      "report": {
+        "native_loss": 4.826711280182542,
+        "partition_losses": {
+          "full512": [
+            4.826711280182542
+          ]
+        },
+        "pool_retrieval": {
+          "text_to_image_r1_percent": 5.859375,
+          "image_to_text_r1_percent": 7.421875,
+          "mean_r1_percent": 6.640625
+        },
+        "features_sha256": "14b411ee24e2c1f272b85266a9ac9ea77c83475e29da52fdca5bbccfa6d67e18",
+        "learned_logit_scale": 99.99394989013672
+      },
+      "state_sha256": "279e5ec6738cb99f26de15c7e221925213c334c07c39a2038c66cb29f6c4875a"
+    }
+  },
+  "traces": [
+    {
+      "native_loss": 2.9471054077148438,
+      "total_loss": 2.957488775253296,
+      "gradient_norm_before_clip": 15.605887413024902,
+      "learning_rates": [
+        1e-05,
+        1e-06,
+        1e-06
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.17290112376213074,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "28c760fb0c608ba080095720c6be919d9e54a0bec787bccb07451feb791824bc",
+        "support_gap": {
+          "mean": 0.00970458984375,
+          "min": 0.001953125,
+          "max": 0.033203125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0002040863037109375,
+            "min": -0.04296875,
+            "max": 0.056640625,
+            "nonpositive_fraction": 0.583984375
+          },
+          "semihard": {
+            "mean": 0.020513534545898438,
+            "min": -0.01953125,
+            "max": 0.08203125,
+            "nonpositive_fraction": 0.154296875
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.031115978956222534,
+            "min": -0.06579470634460449,
+            "max": 0.01202276349067688,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.011749267578125,
+            "min": -0.04296875,
+            "max": 0.02734375,
+            "nonpositive_fraction": 0.828125
+          },
+          "real_semihard": {
+            "mean": 0.017333984375,
+            "min": -0.01953125,
+            "max": 0.0703125,
+            "nonpositive_fraction": 0.203125
+          },
+          "synthetic_semihard": {
+            "mean": -0.013945234939455986,
+            "min": -0.0550193190574646,
+            "max": 0.048008739948272705,
+            "nonpositive_fraction": 0.75
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.017519474029541,
+      "total_loss": 3.028630018234253,
+      "gradient_norm_before_clip": 16.862096786499023,
+      "learning_rates": [
+        9.999998245403766e-06,
+        9.999998245403765e-07,
+        9.999998245403765e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.18501120805740356,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "90db20edebe8d364a6e1963a2b5d58350d6a932bf08705e6927a66784f6b73fc",
+        "support_gap": {
+          "mean": 0.0089874267578125,
+          "min": 0.001953125,
+          "max": 0.021484375,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.000370025634765625,
+            "min": -0.05078125,
+            "max": 0.076171875,
+            "nonpositive_fraction": 0.58984375
+          },
+          "semihard": {
+            "mean": 0.019948959350585938,
+            "min": -0.01171875,
+            "max": 0.111328125,
+            "nonpositive_fraction": 0.142578125
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.033927708864212036,
+            "min": -0.06151223182678223,
+            "max": 0.027373969554901123,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.01214599609375,
+            "min": -0.05078125,
+            "max": 0.04296875,
+            "nonpositive_fraction": 0.8125
+          },
+          "real_semihard": {
+            "mean": 0.0170440673828125,
+            "min": -0.01171875,
+            "max": 0.095703125,
+            "nonpositive_fraction": 0.171875
+          },
+          "synthetic_semihard": {
+            "mean": -0.014668229967355728,
+            "min": -0.04974520206451416,
+            "max": 0.0706872045993805,
+            "nonpositive_fraction": 0.828125
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.0240325927734375,
+      "total_loss": 3.034327983856201,
+      "gradient_norm_before_clip": 16.15845489501953,
+      "learning_rates": [
+        9.999992981616292e-06,
+        9.99999298161629e-07,
+        9.99999298161629e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.1714385747909546,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "da44b727ac5f225b8215ddbb670e16faef7958a6e5f2968befdee485c8333d9b",
+        "support_gap": {
+          "mean": 0.0091400146484375,
+          "min": 0.00390625,
+          "max": 0.021484375,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0010662078857421875,
+            "min": -0.046875,
+            "max": 0.041015625,
+            "nonpositive_fraction": 0.533203125
+          },
+          "semihard": {
+            "mean": 0.018449783325195312,
+            "min": -0.021484375,
+            "max": 0.0703125,
+            "nonpositive_fraction": 0.16796875
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.035176582634449005,
+            "min": -0.07424241304397583,
+            "max": -0.006434082984924316,
+            "nonpositive_fraction": 1.0
+          },
+          "real_hard": {
+            "mean": -0.0118408203125,
+            "min": -0.046875,
+            "max": 0.015625,
+            "nonpositive_fraction": 0.84375
+          },
+          "real_semihard": {
+            "mean": 0.0151824951171875,
+            "min": -0.021484375,
+            "max": 0.056640625,
+            "nonpositive_fraction": 0.203125
+          },
+          "synthetic_semihard": {
+            "mean": -0.017864227294921875,
+            "min": -0.05929887294769287,
+            "max": 0.03577125072479248,
+            "nonpositive_fraction": 0.828125
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.455514907836914,
+      "total_loss": 3.465212345123291,
+      "gradient_norm_before_clip": 16.153146743774414,
+      "learning_rates": [
+        9.999984208641271e-06,
+        9.99998420864127e-07,
+        9.99998420864127e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.16148170828819275,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "1f68ec5bb7deb79aecdbc1dfe43b3cbc7d7249549d83641e6ec4ad937e26fd19",
+        "support_gap": {
+          "mean": 0.0090484619140625,
+          "min": 0.001953125,
+          "max": 0.0361328125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.005275726318359375,
+            "min": -0.068359375,
+            "max": 0.0703125,
+            "nonpositive_fraction": 0.6484375
+          },
+          "semihard": {
+            "mean": 0.013093948364257812,
+            "min": -0.03515625,
+            "max": 0.0791015625,
+            "nonpositive_fraction": 0.21484375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.035561271011829376,
+            "min": -0.08632808923721313,
+            "max": 0.03651207685470581,
+            "nonpositive_fraction": 0.984375
+          },
+          "real_hard": {
+            "mean": -0.0152587890625,
+            "min": -0.068359375,
+            "max": 0.04296875,
+            "nonpositive_fraction": 0.890625
+          },
+          "real_semihard": {
+            "mean": 0.01007080078125,
+            "min": -0.03515625,
+            "max": 0.0732421875,
+            "nonpositive_fraction": 0.25
+          },
+          "synthetic_semihard": {
+            "mean": -0.018001526594161987,
+            "min": -0.06350120902061462,
+            "max": 0.05078338086605072,
+            "nonpositive_fraction": 0.875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.964141845703125,
+      "total_loss": 2.9734225273132324,
+      "gradient_norm_before_clip": 14.966195106506348,
+      "learning_rates": [
+        9.999971926484865e-06,
+        9.999971926484862e-07,
+        9.999971926484862e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.1545405238866806,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "303ce96a06c1eb5fa75bcdf8ac8bde06d55c7249b94c7cbd5563604ea40b6231",
+        "support_gap": {
+          "mean": 0.0079803466796875,
+          "min": 0.001953125,
+          "max": 0.0224609375,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.000606536865234375,
+            "min": -0.048828125,
+            "max": 0.03125,
+            "nonpositive_fraction": 0.552734375
+          },
+          "semihard": {
+            "mean": 0.017087936401367188,
+            "min": -0.025390625,
+            "max": 0.0634765625,
+            "nonpositive_fraction": 0.140625
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.033350951969623566,
+            "min": -0.07719996571540833,
+            "max": -0.005255788564682007,
+            "nonpositive_fraction": 1.0
+          },
+          "real_hard": {
+            "mean": -0.0106964111328125,
+            "min": -0.048828125,
+            "max": 0.015625,
+            "nonpositive_fraction": 0.875
+          },
+          "real_semihard": {
+            "mean": 0.01409912109375,
+            "min": -0.025390625,
+            "max": 0.0498046875,
+            "nonpositive_fraction": 0.21875
+          },
+          "synthetic_semihard": {
+            "mean": -0.017410865053534508,
+            "min": -0.05663418769836426,
+            "max": 0.02920570969581604,
+            "nonpositive_fraction": 0.859375
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.96630859375,
+      "total_loss": 2.976349353790283,
+      "gradient_norm_before_clip": 16.442163467407227,
+      "learning_rates": [
+        9.999956135155688e-06,
+        9.999956135155687e-07,
+        9.999956135155687e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.16719737648963928,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "0878c227a280cea5b86079abb32848932d96f6894809276d8a9b3994799d1ff6",
+        "support_gap": {
+          "mean": 0.0091094970703125,
+          "min": 0.001953125,
+          "max": 0.0302734375,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -1.1444091796875e-05,
+            "min": -0.0439453125,
+            "max": 0.06640625,
+            "nonpositive_fraction": 0.572265625
+          },
+          "semihard": {
+            "mean": 0.01964569091796875,
+            "min": -0.0166015625,
+            "max": 0.1103515625,
+            "nonpositive_fraction": 0.154296875
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.0325654000043869,
+            "min": -0.06569218635559082,
+            "max": 0.015530437231063843,
+            "nonpositive_fraction": 0.9375
+          },
+          "real_hard": {
+            "mean": -0.0113983154296875,
+            "min": -0.0439453125,
+            "max": 0.025390625,
+            "nonpositive_fraction": 0.828125
+          },
+          "real_semihard": {
+            "mean": 0.0166015625,
+            "min": -0.0166015625,
+            "max": 0.0966796875,
+            "nonpositive_fraction": 0.203125
+          },
+          "synthetic_semihard": {
+            "mean": -0.014206190593540668,
+            "min": -0.04445868730545044,
+            "max": 0.07422979176044464,
+            "nonpositive_fraction": 0.8125
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.9297103881835938,
+      "total_loss": 2.9393060207366943,
+      "gradient_norm_before_clip": 15.516759872436523,
+      "learning_rates": [
+        9.99993683466483e-06,
+        9.999936834664829e-07,
+        9.999936834664829e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.15978634357452393,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "3c1eec72f784042878986b4890adb64eecc1d8b3231c51edb6bc4b2a00e2e0e7",
+        "support_gap": {
+          "mean": 0.0091705322265625,
+          "min": 0.001953125,
+          "max": 0.0224609375,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0002002716064453125,
+            "min": -0.041015625,
+            "max": 0.0537109375,
+            "nonpositive_fraction": 0.556640625
+          },
+          "semihard": {
+            "mean": 0.0191192626953125,
+            "min": -0.0126953125,
+            "max": 0.0712890625,
+            "nonpositive_fraction": 0.103515625
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03381615877151489,
+            "min": -0.06071951985359192,
+            "max": 0.0013649463653564453,
+            "nonpositive_fraction": 0.96875
+          },
+          "real_hard": {
+            "mean": -0.0101318359375,
+            "min": -0.041015625,
+            "max": 0.021484375,
+            "nonpositive_fraction": 0.8125
+          },
+          "real_semihard": {
+            "mean": 0.01611328125,
+            "min": -0.0126953125,
+            "max": 0.0673828125,
+            "nonpositive_fraction": 0.140625
+          },
+          "synthetic_semihard": {
+            "mean": -0.015744652599096298,
+            "min": -0.045564204454422,
+            "max": 0.03206302225589752,
+            "nonpositive_fraction": 0.84375
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.0217461585998535,
+      "total_loss": 3.031297206878662,
+      "gradient_norm_before_clip": 16.159055709838867,
+      "learning_rates": [
+        9.999914025025831e-06,
+        9.99991402502583e-07,
+        9.99991402502583e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.1590413600206375,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "398cfeeb9700a105345054b0454df20a99e8c797cb124390981a2f5b147cf709",
+        "support_gap": {
+          "mean": 0.0089569091796875,
+          "min": 0.001953125,
+          "max": 0.0244140625,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.000522613525390625,
+            "min": -0.04296875,
+            "max": 0.095703125,
+            "nonpositive_fraction": 0.56640625
+          },
+          "semihard": {
+            "mean": 0.020055770874023438,
+            "min": -0.0244140625,
+            "max": 0.115234375,
+            "nonpositive_fraction": 0.166015625
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.033858075737953186,
+            "min": -0.06995716691017151,
+            "max": 0.038248926401138306,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.0108642578125,
+            "min": -0.04296875,
+            "max": 0.052734375,
+            "nonpositive_fraction": 0.75
+          },
+          "real_semihard": {
+            "mean": 0.0167694091796875,
+            "min": -0.0244140625,
+            "max": 0.111328125,
+            "nonpositive_fraction": 0.21875
+          },
+          "synthetic_semihard": {
+            "mean": -0.014173051342368126,
+            "min": -0.06187093257904053,
+            "max": 0.08495508134365082,
+            "nonpositive_fraction": 0.796875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.949859619140625,
+      "total_loss": 2.9613099098205566,
+      "gradient_norm_before_clip": 15.099628448486328,
+      "learning_rates": [
+        9.999887706254703e-06,
+        9.999887706254702e-07,
+        9.999887706254702e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.19066861271858215,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "b391edb89282da227113435c4dcb47835f8bfa941d03ea604635603476de1189",
+        "support_gap": {
+          "mean": 0.00982666015625,
+          "min": 0.001953125,
+          "max": 0.033203125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0005359649658203125,
+            "min": -0.0458984375,
+            "max": 0.0478515625,
+            "nonpositive_fraction": 0.5390625
+          },
+          "semihard": {
+            "mean": 0.020479202270507812,
+            "min": -0.021484375,
+            "max": 0.0625,
+            "nonpositive_fraction": 0.09375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03152497112751007,
+            "min": -0.06768840551376343,
+            "max": 0.010155141353607178,
+            "nonpositive_fraction": 0.96875
+          },
+          "real_hard": {
+            "mean": -0.012420654296875,
+            "min": -0.0458984375,
+            "max": 0.03515625,
+            "nonpositive_fraction": 0.765625
+          },
+          "real_semihard": {
+            "mean": 0.017181396484375,
+            "min": -0.021484375,
+            "max": 0.056640625,
+            "nonpositive_fraction": 0.140625
+          },
+          "synthetic_semihard": {
+            "mean": -0.014996802434325218,
+            "min": -0.05900770425796509,
+            "max": 0.02784666419029236,
+            "nonpositive_fraction": 0.796875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.530536651611328,
+      "total_loss": 3.541558027267456,
+      "gradient_norm_before_clip": 18.172435760498047,
+      "learning_rates": [
+        9.999857878369917e-06,
+        9.999857878369915e-07,
+        9.999857878369915e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.18352709710597992,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "a6c13bf830f364fffc06827fafe523a9941e5c02897c6c0391de4f086720b882",
+        "support_gap": {
+          "mean": 0.009490966796875,
+          "min": 0.00390625,
+          "max": 0.03125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0059299468994140625,
+            "min": -0.0927734375,
+            "max": 0.0634765625,
+            "nonpositive_fraction": 0.6640625
+          },
+          "semihard": {
+            "mean": 0.013216018676757812,
+            "min": -0.033203125,
+            "max": 0.0859375,
+            "nonpositive_fraction": 0.212890625
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.038033854216337204,
+            "min": -0.1089741587638855,
+            "max": 0.020073890686035156,
+            "nonpositive_fraction": 0.984375
+          },
+          "real_hard": {
+            "mean": -0.0181427001953125,
+            "min": -0.0927734375,
+            "max": 0.015625,
+            "nonpositive_fraction": 0.875
+          },
+          "real_semihard": {
+            "mean": 0.0102386474609375,
+            "min": -0.033203125,
+            "max": 0.0791015625,
+            "nonpositive_fraction": 0.296875
+          },
+          "synthetic_semihard": {
+            "mean": -0.021173041313886642,
+            "min": -0.0625910758972168,
+            "max": 0.05114494264125824,
+            "nonpositive_fraction": 0.890625
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.95098876953125,
+      "total_loss": 2.9623560905456543,
+      "gradient_norm_before_clip": 15.787598609924316,
+      "learning_rates": [
+        9.999824541392404e-06,
+        9.999824541392404e-07,
+        9.999824541392404e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.18928740918636322,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "7de03d74d63677382920ce96249e2e1d4ccd7a4a79debaf9428b9a76f45377c8",
+        "support_gap": {
+          "mean": 0.0088348388671875,
+          "min": 0.001953125,
+          "max": 0.0205078125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.001110076904296875,
+            "min": -0.0673828125,
+            "max": 0.0380859375,
+            "nonpositive_fraction": 0.537109375
+          },
+          "semihard": {
+            "mean": 0.019048690795898438,
+            "min": -0.0439453125,
+            "max": 0.064453125,
+            "nonpositive_fraction": 0.154296875
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03202047944068909,
+            "min": -0.08774924278259277,
+            "max": -0.003207564353942871,
+            "nonpositive_fraction": 1.0
+          },
+          "real_hard": {
+            "mean": -0.0133209228515625,
+            "min": -0.0673828125,
+            "max": 0.013671875,
+            "nonpositive_fraction": 0.84375
+          },
+          "real_semihard": {
+            "mean": 0.0159149169921875,
+            "min": -0.0439453125,
+            "max": 0.05859375,
+            "nonpositive_fraction": 0.21875
+          },
+          "synthetic_semihard": {
+            "mean": -0.014247547835111618,
+            "min": -0.07120603322982788,
+            "max": 0.028635740280151367,
+            "nonpositive_fraction": 0.8125
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.842315673828125,
+      "total_loss": 2.8543896675109863,
+      "gradient_norm_before_clip": 16.702098846435547,
+      "learning_rates": [
+        9.999787695345565e-06,
+        9.999787695345565e-07,
+        9.999787695345565e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.2010534107685089,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "df98f1c7ffbf98cc2b4d84fec154f5d1835854f7accde550a040b0d42ba6a94f",
+        "support_gap": {
+          "mean": 0.0101165771484375,
+          "min": 0.00390625,
+          "max": 0.033203125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0017986297607421875,
+            "min": -0.0439453125,
+            "max": 0.0576171875,
+            "nonpositive_fraction": 0.583984375
+          },
+          "semihard": {
+            "mean": 0.022905349731445312,
+            "min": -0.0146484375,
+            "max": 0.0791015625,
+            "nonpositive_fraction": 0.109375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.030939076095819473,
+            "min": -0.06472554802894592,
+            "max": 0.011564552783966064,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.01214599609375,
+            "min": -0.0439453125,
+            "max": 0.03515625,
+            "nonpositive_fraction": 0.875
+          },
+          "real_semihard": {
+            "mean": 0.0196380615234375,
+            "min": -0.0146484375,
+            "max": 0.068359375,
+            "nonpositive_fraction": 0.140625
+          },
+          "synthetic_semihard": {
+            "mean": -0.01101017091423273,
+            "min": -0.043953895568847656,
+            "max": 0.038697779178619385,
+            "nonpositive_fraction": 0.71875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.8296279907226562,
+      "total_loss": 2.8417751789093018,
+      "gradient_norm_before_clip": 19.039844512939453,
+      "learning_rates": [
+        9.99974734025526e-06,
+        9.999747340255258e-07,
+        9.999747340255258e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.2022744119167328,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "73455546a376385a25f51089135ce2ee6892ec7dfdda050f30f0e81b442db83a",
+        "support_gap": {
+          "mean": 0.0103302001953125,
+          "min": 0.001953125,
+          "max": 0.0302734375,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0013408660888671875,
+            "min": -0.0439453125,
+            "max": 0.078125,
+            "nonpositive_fraction": 0.517578125
+          },
+          "semihard": {
+            "mean": 0.024103164672851562,
+            "min": -0.015625,
+            "max": 0.103515625,
+            "nonpositive_fraction": 0.142578125
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.028237247839570045,
+            "min": -0.0576440691947937,
+            "max": 0.01889282464981079,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.01214599609375,
+            "min": -0.0439453125,
+            "max": 0.037109375,
+            "nonpositive_fraction": 0.828125
+          },
+          "real_semihard": {
+            "mean": 0.020660400390625,
+            "min": -0.015625,
+            "max": 0.09375,
+            "nonpositive_fraction": 0.171875
+          },
+          "synthetic_semihard": {
+            "mean": -0.005917629227042198,
+            "min": -0.04777991771697998,
+            "max": 0.06894879043102264,
+            "nonpositive_fraction": 0.6875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.6147327423095703,
+      "total_loss": 2.625575542449951,
+      "gradient_norm_before_clip": 15.332664489746094,
+      "learning_rates": [
+        9.999703476149808e-06,
+        9.999703476149807e-07,
+        9.999703476149807e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.18055281043052673,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "8b2ce9531847626a43c082a1d344a48f062849ec3c615de965ccd05e0f301299",
+        "support_gap": {
+          "mean": 0.0107879638671875,
+          "min": 0.001953125,
+          "max": 0.0283203125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.003025054931640625,
+            "min": -0.0380859375,
+            "max": 0.05859375,
+            "nonpositive_fraction": 0.470703125
+          },
+          "semihard": {
+            "mean": 0.025453567504882812,
+            "min": -0.0126953125,
+            "max": 0.0869140625,
+            "nonpositive_fraction": 0.046875
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.02926318347454071,
+            "min": -0.05401796102523804,
+            "max": 0.012444615364074707,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.0089569091796875,
+            "min": -0.0380859375,
+            "max": 0.03125,
+            "nonpositive_fraction": 0.796875
+          },
+          "real_semihard": {
+            "mean": 0.022186279296875,
+            "min": -0.0126953125,
+            "max": 0.0732421875,
+            "nonpositive_fraction": 0.09375
+          },
+          "synthetic_semihard": {
+            "mean": -0.00912255235016346,
+            "min": -0.04040580987930298,
+            "max": 0.05303570628166199,
+            "nonpositive_fraction": 0.71875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.090850830078125,
+      "total_loss": 3.1006433963775635,
+      "gradient_norm_before_clip": 14.80801010131836,
+      "learning_rates": [
+        9.999656103060001e-06,
+        9.99965610306e-07,
+        9.99965610306e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.16306495666503906,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "485406e08b8aa4ddf094cd35220a0437307cd8f086309310b76dc0f1e5fd78d1",
+        "support_gap": {
+          "mean": 0.00799560546875,
+          "min": 0.001953125,
+          "max": 0.01953125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.001110076904296875,
+            "min": -0.0390625,
+            "max": 0.0576171875,
+            "nonpositive_fraction": 0.556640625
+          },
+          "semihard": {
+            "mean": 0.01667022705078125,
+            "min": -0.017578125,
+            "max": 0.0810546875,
+            "nonpositive_fraction": 0.185546875
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03155270963907242,
+            "min": -0.06327366828918457,
+            "max": -0.00010305643081665039,
+            "nonpositive_fraction": 1.0
+          },
+          "real_hard": {
+            "mean": -0.0120849609375,
+            "min": -0.0390625,
+            "max": 0.017578125,
+            "nonpositive_fraction": 0.875
+          },
+          "real_semihard": {
+            "mean": 0.014129638671875,
+            "min": -0.017578125,
+            "max": 0.072265625,
+            "nonpositive_fraction": 0.21875
+          },
+          "synthetic_semihard": {
+            "mean": -0.014754544012248516,
+            "min": -0.045885324478149414,
+            "max": 0.047130659222602844,
+            "nonpositive_fraction": 0.8125
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.246063232421875,
+      "total_loss": 3.255807876586914,
+      "gradient_norm_before_clip": 16.615495681762695,
+      "learning_rates": [
+        9.999605221019082e-06,
+        9.999605221019081e-07,
+        9.999605221019081e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.1622646152973175,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "826aca2e82102ce9fd0120aef5903911e471273c34667259e4a9b57d5ead08b1",
+        "support_gap": {
+          "mean": 0.010009765625,
+          "min": 0.001953125,
+          "max": 0.0322265625,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.003322601318359375,
+            "min": -0.0654296875,
+            "max": 0.048828125,
+            "nonpositive_fraction": 0.603515625
+          },
+          "semihard": {
+            "mean": 0.017429351806640625,
+            "min": -0.029296875,
+            "max": 0.0751953125,
+            "nonpositive_fraction": 0.25
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03287748992443085,
+            "min": -0.07360577583312988,
+            "max": 0.004176408052444458,
+            "nonpositive_fraction": 0.984375
+          },
+          "real_hard": {
+            "mean": -0.0138397216796875,
+            "min": -0.0654296875,
+            "max": 0.021484375,
+            "nonpositive_fraction": 0.796875
+          },
+          "real_semihard": {
+            "mean": 0.0141754150390625,
+            "min": -0.029296875,
+            "max": 0.064453125,
+            "nonpositive_fraction": 0.328125
+          },
+          "synthetic_semihard": {
+            "mean": -0.01373816654086113,
+            "min": -0.06143185496330261,
+            "max": 0.04006780683994293,
+            "nonpositive_fraction": 0.734375
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.8346595764160156,
+      "total_loss": 2.8451340198516846,
+      "gradient_norm_before_clip": 15.938599586486816,
+      "learning_rates": [
+        9.999550830062762e-06,
+        9.999550830062763e-07,
+        9.999550830062763e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.17442013323307037,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "976ee46f849f690f04a66a419704ae0df7b5bdaf856ce32db2e369cfae3c6a26",
+        "support_gap": {
+          "mean": 0.01007080078125,
+          "min": 0.001953125,
+          "max": 0.0439453125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.002414703369140625,
+            "min": -0.03515625,
+            "max": 0.072265625,
+            "nonpositive_fraction": 0.54296875
+          },
+          "semihard": {
+            "mean": 0.02365875244140625,
+            "min": -0.017578125,
+            "max": 0.1015625,
+            "nonpositive_fraction": 0.091796875
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.029088923707604408,
+            "min": -0.05651324987411499,
+            "max": 0.027469664812088013,
+            "nonpositive_fraction": 0.890625
+          },
+          "real_hard": {
+            "mean": -0.0103302001953125,
+            "min": -0.03515625,
+            "max": 0.029296875,
+            "nonpositive_fraction": 0.765625
+          },
+          "real_semihard": {
+            "mean": 0.02056884765625,
+            "min": -0.017578125,
+            "max": 0.091796875,
+            "nonpositive_fraction": 0.15625
+          },
+          "synthetic_semihard": {
+            "mean": -0.009248720481991768,
+            "min": -0.046518474817276,
+            "max": 0.0652385801076889,
+            "nonpositive_fraction": 0.765625
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.9024658203125,
+      "total_loss": 2.912823438644409,
+      "gradient_norm_before_clip": 15.458807945251465,
+      "learning_rates": [
+        9.999492930229217e-06,
+        9.999492930229217e-07,
+        9.999492930229217e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.17247509956359863,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "3488c985e65402d70be32539d6f31d5ea3d9c77f3ad48050a81f6b6f85b791a0",
+        "support_gap": {
+          "mean": 0.0098114013671875,
+          "min": 0.001953125,
+          "max": 0.0341796875,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.000640869140625,
+            "min": -0.037109375,
+            "max": 0.05078125,
+            "nonpositive_fraction": 0.533203125
+          },
+          "semihard": {
+            "mean": 0.020694732666015625,
+            "min": -0.021484375,
+            "max": 0.0751953125,
+            "nonpositive_fraction": 0.11328125
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03159094601869583,
+            "min": -0.06298798322677612,
+            "max": 0.00774693489074707,
+            "nonpositive_fraction": 0.984375
+          },
+          "real_hard": {
+            "mean": -0.0107421875,
+            "min": -0.037109375,
+            "max": 0.025390625,
+            "nonpositive_fraction": 0.84375
+          },
+          "real_semihard": {
+            "mean": 0.017669677734375,
+            "min": -0.021484375,
+            "max": 0.0654296875,
+            "nonpositive_fraction": 0.140625
+          },
+          "synthetic_semihard": {
+            "mean": -0.011699004098773003,
+            "min": -0.05586361885070801,
+            "max": 0.042571455240249634,
+            "nonpositive_fraction": 0.796875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.970280647277832,
+      "total_loss": 2.9809370040893555,
+      "gradient_norm_before_clip": 15.208094596862793,
+      "learning_rates": [
+        9.999431521559081e-06,
+        9.99943152155908e-07,
+        9.99943152155908e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.17744752764701843,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "ce3498abb78f8918d83967e23a8f3369c89fb0cb8be61dfcf64debda5d12cfb4",
+        "support_gap": {
+          "mean": 0.0096588134765625,
+          "min": 0.001953125,
+          "max": 0.0263671875,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0002346038818359375,
+            "min": -0.046875,
+            "max": 0.0751953125,
+            "nonpositive_fraction": 0.59765625
+          },
+          "semihard": {
+            "mean": 0.02127838134765625,
+            "min": -0.0263671875,
+            "max": 0.111328125,
+            "nonpositive_fraction": 0.130859375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03140025958418846,
+            "min": -0.06599316000938416,
+            "max": 0.021315932273864746,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.01171875,
+            "min": -0.046875,
+            "max": 0.044921875,
+            "nonpositive_fraction": 0.875
+          },
+          "real_semihard": {
+            "mean": 0.017791748046875,
+            "min": -0.0263671875,
+            "max": 0.08984375,
+            "nonpositive_fraction": 0.1875
+          },
+          "synthetic_semihard": {
+            "mean": -0.012431956827640533,
+            "min": -0.0697474479675293,
+            "max": 0.06800779700279236,
+            "nonpositive_fraction": 0.78125
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.9348011016845703,
+      "total_loss": 2.945991039276123,
+      "gradient_norm_before_clip": 16.971755981445312,
+      "learning_rates": [
+        9.999366604095458e-06,
+        9.999366604095457e-07,
+        9.999366604095457e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.1863338053226471,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "c45035420fd92e4ba5a8e01e1a99e54066e235661acddf448deedab0c1683aaf",
+        "support_gap": {
+          "mean": 0.0093536376953125,
+          "min": 0.00390625,
+          "max": 0.01953125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0001678466796875,
+            "min": -0.052734375,
+            "max": 0.060546875,
+            "nonpositive_fraction": 0.4921875
+          },
+          "semihard": {
+            "mean": 0.02114105224609375,
+            "min": -0.02734375,
+            "max": 0.0888671875,
+            "nonpositive_fraction": 0.1875
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03252630680799484,
+            "min": -0.07785731554031372,
+            "max": 0.01746755838394165,
+            "nonpositive_fraction": 0.96875
+          },
+          "real_hard": {
+            "mean": -0.0124359130859375,
+            "min": -0.052734375,
+            "max": 0.0234375,
+            "nonpositive_fraction": 0.828125
+          },
+          "real_semihard": {
+            "mean": 0.0177764892578125,
+            "min": -0.02734375,
+            "max": 0.076171875,
+            "nonpositive_fraction": 0.25
+          },
+          "synthetic_semihard": {
+            "mean": -0.013387620449066162,
+            "min": -0.05831751227378845,
+            "max": 0.05194014310836792,
+            "nonpositive_fraction": 0.796875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.779552459716797,
+      "total_loss": 2.789011240005493,
+      "gradient_norm_before_clip": 14.486603736877441,
+      "learning_rates": [
+        9.999298177883902e-06,
+        9.999298177883901e-07,
+        9.999298177883901e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.15750500559806824,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "4986e53492cd54bc44f80ff077e1244fe36c05c20898da50665c67404d1b0c00",
+        "support_gap": {
+          "mean": 0.0089263916015625,
+          "min": 0.001953125,
+          "max": 0.025390625,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0019702911376953125,
+            "min": -0.0419921875,
+            "max": 0.064453125,
+            "nonpositive_fraction": 0.5390625
+          },
+          "semihard": {
+            "mean": 0.022098541259765625,
+            "min": -0.021484375,
+            "max": 0.0947265625,
+            "nonpositive_fraction": 0.158203125
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.027868255972862244,
+            "min": -0.06257370114326477,
+            "max": 0.024939000606536865,
+            "nonpositive_fraction": 0.96875
+          },
+          "real_hard": {
+            "mean": -0.008544921875,
+            "min": -0.0419921875,
+            "max": 0.046875,
+            "nonpositive_fraction": 0.8125
+          },
+          "real_semihard": {
+            "mean": 0.018218994140625,
+            "min": -0.021484375,
+            "max": 0.0888671875,
+            "nonpositive_fraction": 0.1875
+          },
+          "synthetic_semihard": {
+            "mean": -0.01117134839296341,
+            "min": -0.05704653263092041,
+            "max": 0.06207597255706787,
+            "nonpositive_fraction": 0.75
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.6854476928710938,
+      "total_loss": 2.695854902267456,
+      "gradient_norm_before_clip": 15.257944107055664,
+      "learning_rates": [
+        9.999226242972445e-06,
+        9.999226242972443e-07,
+        9.999226242972443e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.17329993844032288,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "e98078aeb3879d3e95369ac0aa8edc512ad54a4c73101206600a945ad0c66155",
+        "support_gap": {
+          "mean": 0.00946044921875,
+          "min": 0.0029296875,
+          "max": 0.01953125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0025634765625,
+            "min": -0.044921875,
+            "max": 0.0615234375,
+            "nonpositive_fraction": 0.509765625
+          },
+          "semihard": {
+            "mean": 0.023309707641601562,
+            "min": -0.01171875,
+            "max": 0.0751953125,
+            "nonpositive_fraction": 0.115234375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.026363840326666832,
+            "min": -0.06289631128311157,
+            "max": 0.02403387427330017,
+            "nonpositive_fraction": 0.984375
+          },
+          "real_hard": {
+            "mean": -0.0090179443359375,
+            "min": -0.044921875,
+            "max": 0.033203125,
+            "nonpositive_fraction": 0.8125
+          },
+          "real_semihard": {
+            "mean": 0.0199737548828125,
+            "min": -0.01171875,
+            "max": 0.0673828125,
+            "nonpositive_fraction": 0.140625
+          },
+          "synthetic_semihard": {
+            "mean": -0.0075514111667871475,
+            "min": -0.04277753829956055,
+            "max": 0.04532197117805481,
+            "nonpositive_fraction": 0.640625
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.7320823669433594,
+      "total_loss": 2.741088628768921,
+      "gradient_norm_before_clip": 13.969502449035645,
+      "learning_rates": [
+        9.999150799411565e-06,
+        9.999150799411564e-07,
+        9.999150799411564e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.14996975660324097,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "e96326d427186a601e437e623b024515811defbee54a65e060851aa4f7aa0563",
+        "support_gap": {
+          "mean": 0.00848388671875,
+          "min": 0.0029296875,
+          "max": 0.0283203125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.003292083740234375,
+            "min": -0.0458984375,
+            "max": 0.060546875,
+            "nonpositive_fraction": 0.458984375
+          },
+          "semihard": {
+            "mean": 0.022089004516601562,
+            "min": -0.029296875,
+            "max": 0.083984375,
+            "nonpositive_fraction": 0.109375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.02736181579530239,
+            "min": -0.06975990533828735,
+            "max": 0.017660021781921387,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.0078277587890625,
+            "min": -0.0458984375,
+            "max": 0.029296875,
+            "nonpositive_fraction": 0.765625
+          },
+          "real_semihard": {
+            "mean": 0.0193939208984375,
+            "min": -0.029296875,
+            "max": 0.0791015625,
+            "nonpositive_fraction": 0.140625
+          },
+          "synthetic_semihard": {
+            "mean": -0.009995412081480026,
+            "min": -0.06310027837753296,
+            "max": 0.05587080121040344,
+            "nonpositive_fraction": 0.71875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.7693710327148438,
+      "total_loss": 2.7792775630950928,
+      "gradient_norm_before_clip": 15.489584922790527,
+      "learning_rates": [
+        9.999071847254219e-06,
+        9.999071847254218e-07,
+        9.999071847254218e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.16496062278747559,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "64043c7adc1d7093ca1b62b297f900556cdcd153edf6cb652b2e80de953609cf",
+        "support_gap": {
+          "mean": 0.0101776123046875,
+          "min": 0.001953125,
+          "max": 0.03125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.001781463623046875,
+            "min": -0.0439453125,
+            "max": 0.060546875,
+            "nonpositive_fraction": 0.517578125
+          },
+          "semihard": {
+            "mean": 0.023412704467773438,
+            "min": -0.0146484375,
+            "max": 0.087890625,
+            "nonpositive_fraction": 0.09375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03012111969292164,
+            "min": -0.06379133462905884,
+            "max": 0.001962125301361084,
+            "nonpositive_fraction": 0.96875
+          },
+          "real_hard": {
+            "mean": -0.0093841552734375,
+            "min": -0.0439453125,
+            "max": 0.021484375,
+            "nonpositive_fraction": 0.75
+          },
+          "real_semihard": {
+            "mean": 0.0199737548828125,
+            "min": -0.0146484375,
+            "max": 0.076171875,
+            "nonpositive_fraction": 0.125
+          },
+          "synthetic_semihard": {
+            "mean": -0.009555108845233917,
+            "min": -0.04821854829788208,
+            "max": 0.05062389373779297,
+            "nonpositive_fraction": 0.734375
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.8183212280273438,
+      "total_loss": 2.829101085662842,
+      "gradient_norm_before_clip": 14.461604118347168,
+      "learning_rates": [
+        9.998989386555815e-06,
+        9.998989386555814e-07,
+        9.998989386555814e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.17950478196144104,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "abea66c38764bd1e4730b38c52dd2fe16d9943d0b31538b64fc97b405ab2ed97",
+        "support_gap": {
+          "mean": 0.0103302001953125,
+          "min": 0.001953125,
+          "max": 0.0244140625,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0012645721435546875,
+            "min": -0.046875,
+            "max": 0.0732421875,
+            "nonpositive_fraction": 0.572265625
+          },
+          "semihard": {
+            "mean": 0.0234375,
+            "min": -0.009765625,
+            "max": 0.095703125,
+            "nonpositive_fraction": 0.0859375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.029945623129606247,
+            "min": -0.06097295880317688,
+            "max": 0.014511168003082275,
+            "nonpositive_fraction": 0.921875
+          },
+          "real_hard": {
+            "mean": -0.0104827880859375,
+            "min": -0.046875,
+            "max": 0.033203125,
+            "nonpositive_fraction": 0.796875
+          },
+          "real_semihard": {
+            "mean": 0.01947021484375,
+            "min": -0.009765625,
+            "max": 0.0849609375,
+            "nonpositive_fraction": 0.171875
+          },
+          "synthetic_semihard": {
+            "mean": -0.00972167681902647,
+            "min": -0.040014684200286865,
+            "max": 0.05907462537288666,
+            "nonpositive_fraction": 0.765625
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.441131591796875,
+      "total_loss": 3.452601194381714,
+      "gradient_norm_before_clip": 17.7204532623291,
+      "learning_rates": [
+        9.998903417374228e-06,
+        9.998903417374226e-07,
+        9.998903417374226e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.1909884512424469,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "233bd6669f28fa963c5647c94ff2e2ac75fa33b260b394cc6f621c7625b05a1e",
+        "support_gap": {
+          "mean": 0.009613037109375,
+          "min": 0.00390625,
+          "max": 0.0244140625,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.004894256591796875,
+            "min": -0.0810546875,
+            "max": 0.0400390625,
+            "nonpositive_fraction": 0.580078125
+          },
+          "semihard": {
+            "mean": 0.01628875732421875,
+            "min": -0.0234375,
+            "max": 0.05859375,
+            "nonpositive_fraction": 0.251953125
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03740702569484711,
+            "min": -0.08352196216583252,
+            "max": -0.002715975046157837,
+            "nonpositive_fraction": 1.0
+          },
+          "real_hard": {
+            "mean": -0.01702880859375,
+            "min": -0.0810546875,
+            "max": 0.01171875,
+            "nonpositive_fraction": 0.859375
+          },
+          "real_semihard": {
+            "mean": 0.012786865234375,
+            "min": -0.0234375,
+            "max": 0.0498046875,
+            "nonpositive_fraction": 0.3125
+          },
+          "synthetic_semihard": {
+            "mean": -0.01752527430653572,
+            "min": -0.06172248721122742,
+            "max": 0.020900636911392212,
+            "nonpositive_fraction": 0.796875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.653074264526367,
+      "total_loss": 2.663980722427368,
+      "gradient_norm_before_clip": 16.732484817504883,
+      "learning_rates": [
+        9.998813939769794e-06,
+        9.998813939769791e-07,
+        9.998813939769791e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.18161335587501526,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "53ecdc464586b161dcf422ca8e50835a6faaed14f0e6e144dba33ca51247af47",
+        "support_gap": {
+          "mean": 0.00970458984375,
+          "min": 0.001953125,
+          "max": 0.0244140625,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0031032562255859375,
+            "min": -0.044921875,
+            "max": 0.0634765625,
+            "nonpositive_fraction": 0.458984375
+          },
+          "semihard": {
+            "mean": 0.023983001708984375,
+            "min": -0.0126953125,
+            "max": 0.0810546875,
+            "nonpositive_fraction": 0.0703125
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.029152972623705864,
+            "min": -0.05934685468673706,
+            "max": 0.017062246799468994,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.009002685546875,
+            "min": -0.044921875,
+            "max": 0.041015625,
+            "nonpositive_fraction": 0.796875
+          },
+          "real_semihard": {
+            "mean": 0.0204925537109375,
+            "min": -0.0126953125,
+            "max": 0.0732421875,
+            "nonpositive_fraction": 0.09375
+          },
+          "synthetic_semihard": {
+            "mean": -0.01059032417833805,
+            "min": -0.04475921392440796,
+            "max": 0.041943490505218506,
+            "nonpositive_fraction": 0.796875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.881908416748047,
+      "total_loss": 2.8926029205322266,
+      "gradient_norm_before_clip": 16.76120376586914,
+      "learning_rates": [
+        9.998720953805312e-06,
+        9.99872095380531e-07,
+        9.99872095380531e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.17808248102664948,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "e6d9d840159ab70504621b80dea6b1189d4fcfdc47d668131e991d1275ae0ab6",
+        "support_gap": {
+          "mean": 0.0097808837890625,
+          "min": 0.001953125,
+          "max": 0.0439453125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0021343231201171875,
+            "min": -0.0498046875,
+            "max": 0.078125,
+            "nonpositive_fraction": 0.544921875
+          },
+          "semihard": {
+            "mean": 0.023195266723632812,
+            "min": -0.015625,
+            "max": 0.1396484375,
+            "nonpositive_fraction": 0.150390625
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.02981582283973694,
+            "min": -0.06701886653900146,
+            "max": 0.023581206798553467,
+            "nonpositive_fraction": 0.9375
+          },
+          "real_hard": {
+            "mean": -0.0106353759765625,
+            "min": -0.0498046875,
+            "max": 0.02734375,
+            "nonpositive_fraction": 0.796875
+          },
+          "real_semihard": {
+            "mean": 0.02020263671875,
+            "min": -0.015625,
+            "max": 0.1220703125,
+            "nonpositive_fraction": 0.171875
+          },
+          "synthetic_semihard": {
+            "mean": -0.009297290816903114,
+            "min": -0.04283830523490906,
+            "max": 0.10375465452671051,
+            "nonpositive_fraction": 0.6875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.7693328857421875,
+      "total_loss": 2.7798802852630615,
+      "gradient_norm_before_clip": 14.37385368347168,
+      "learning_rates": [
+        9.998624459546043e-06,
+        9.998624459546042e-07,
+        9.998624459546042e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.1756340116262436,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "f6fdc5fc0e494db934581fc76525d3145f266b09a897f273cbfc201572bd6706",
+        "support_gap": {
+          "mean": 0.0094757080078125,
+          "min": 0.001953125,
+          "max": 0.0322265625,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0025787353515625,
+            "min": -0.0576171875,
+            "max": 0.052734375,
+            "nonpositive_fraction": 0.513671875
+          },
+          "semihard": {
+            "mean": 0.022607803344726562,
+            "min": -0.029296875,
+            "max": 0.08203125,
+            "nonpositive_fraction": 0.146484375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.02818315662443638,
+            "min": -0.07529693841934204,
+            "max": 0.013318419456481934,
+            "nonpositive_fraction": 0.90625
+          },
+          "real_hard": {
+            "mean": -0.0099029541015625,
+            "min": -0.0576171875,
+            "max": 0.033203125,
+            "nonpositive_fraction": 0.734375
+          },
+          "real_semihard": {
+            "mean": 0.0196685791015625,
+            "min": -0.029296875,
+            "max": 0.068359375,
+            "nonpositive_fraction": 0.171875
+          },
+          "synthetic_semihard": {
+            "mean": -0.01091212872415781,
+            "min": -0.06371837854385376,
+            "max": 0.04884892702102661,
+            "nonpositive_fraction": 0.6875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.1797351837158203,
+      "total_loss": 3.1904959678649902,
+      "gradient_norm_before_clip": 16.089048385620117,
+      "learning_rates": [
+        9.99852445705971e-06,
+        9.99852445705971e-07,
+        9.99852445705971e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.1791878342628479,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "c97d385bb4bb1d055383fa9680958b88d096ccb2ede72e799a46a21792e86f5a",
+        "support_gap": {
+          "mean": 0.0099334716796875,
+          "min": 0.001953125,
+          "max": 0.03125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.00334930419921875,
+            "min": -0.0517578125,
+            "max": 0.0634765625,
+            "nonpositive_fraction": 0.6484375
+          },
+          "semihard": {
+            "mean": 0.017183303833007812,
+            "min": -0.0263671875,
+            "max": 0.080078125,
+            "nonpositive_fraction": 0.1171875
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.0326361209154129,
+            "min": -0.0712825357913971,
+            "max": 0.029877007007598877,
+            "nonpositive_fraction": 0.984375
+          },
+          "real_hard": {
+            "mean": -0.0143890380859375,
+            "min": -0.0517578125,
+            "max": 0.044921875,
+            "nonpositive_fraction": 0.90625
+          },
+          "real_semihard": {
+            "mean": 0.013946533203125,
+            "min": -0.0263671875,
+            "max": 0.0732421875,
+            "nonpositive_fraction": 0.125
+          },
+          "synthetic_semihard": {
+            "mean": -0.014202908612787724,
+            "min": -0.05737718939781189,
+            "max": 0.04400092363357544,
+            "nonpositive_fraction": 0.890625
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.6500205993652344,
+      "total_loss": 2.662764310836792,
+      "gradient_norm_before_clip": 14.83360481262207,
+      "learning_rates": [
+        9.9984209464165e-06,
+        9.998420946416499e-07,
+        9.998420946416499e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.21220442652702332,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "40041853cdcb7181636de47565e83c4368e1898e75317453c83ab81dddb85591",
+        "support_gap": {
+          "mean": 0.010894775390625,
+          "min": 0.001953125,
+          "max": 0.025390625,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0032444000244140625,
+            "min": -0.048828125,
+            "max": 0.048828125,
+            "nonpositive_fraction": 0.4921875
+          },
+          "semihard": {
+            "mean": 0.02618408203125,
+            "min": -0.013671875,
+            "max": 0.0712890625,
+            "nonpositive_fraction": 0.08203125
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.026855308562517166,
+            "min": -0.05950593948364258,
+            "max": 0.004157334566116333,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.010650634765625,
+            "min": -0.048828125,
+            "max": 0.025390625,
+            "nonpositive_fraction": 0.8125
+          },
+          "real_semihard": {
+            "mean": 0.022613525390625,
+            "min": -0.013671875,
+            "max": 0.06640625,
+            "nonpositive_fraction": 0.125
+          },
+          "synthetic_semihard": {
+            "mean": -0.00585734099149704,
+            "min": -0.05037453770637512,
+            "max": 0.03411829471588135,
+            "nonpositive_fraction": 0.515625
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.0689315795898438,
+      "total_loss": 3.0800204277038574,
+      "gradient_norm_before_clip": 15.665873527526855,
+      "learning_rates": [
+        9.99831392768906e-06,
+        9.99831392768906e-07,
+        9.99831392768906e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.18464788794517517,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "6fb0cae256ae5868648a49ef39310182f980d55d5455c3309da46c6452a91be3",
+        "support_gap": {
+          "mean": 0.0106048583984375,
+          "min": 0.001953125,
+          "max": 0.0283203125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0008525848388671875,
+            "min": -0.0595703125,
+            "max": 0.0615234375,
+            "nonpositive_fraction": 0.607421875
+          },
+          "semihard": {
+            "mean": 0.02098846435546875,
+            "min": -0.01953125,
+            "max": 0.0859375,
+            "nonpositive_fraction": 0.13671875
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.029800930991768837,
+            "min": -0.07469671964645386,
+            "max": 0.015380024909973145,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.0130462646484375,
+            "min": -0.0595703125,
+            "max": 0.017578125,
+            "nonpositive_fraction": 0.875
+          },
+          "real_semihard": {
+            "mean": 0.0176544189453125,
+            "min": -0.01953125,
+            "max": 0.0771484375,
+            "nonpositive_fraction": 0.1875
+          },
+          "synthetic_semihard": {
+            "mean": -0.010090035386383533,
+            "min": -0.04897564649581909,
+            "max": 0.051305025815963745,
+            "nonpositive_fraction": 0.734375
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.9165191650390625,
+      "total_loss": 2.928281784057617,
+      "gradient_norm_before_clip": 15.851391792297363,
+      "learning_rates": [
+        9.9982034009525e-06,
+        9.9982034009525e-07,
+        9.9982034009525e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.1958705186843872,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "0062569cb5e4a09877b0fbb0ce2c6678282376f9309ea8fd5749ae037e4d9890",
+        "support_gap": {
+          "mean": 0.010711669921875,
+          "min": 0.001953125,
+          "max": 0.0302734375,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0005397796630859375,
+            "min": -0.064453125,
+            "max": 0.078125,
+            "nonpositive_fraction": 0.544921875
+          },
+          "semihard": {
+            "mean": 0.023656845092773438,
+            "min": -0.0283203125,
+            "max": 0.0986328125,
+            "nonpositive_fraction": 0.09765625
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03014528751373291,
+            "min": -0.0834578275680542,
+            "max": 0.025377333164215088,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.0128021240234375,
+            "min": -0.064453125,
+            "max": 0.029296875,
+            "nonpositive_fraction": 0.859375
+          },
+          "real_semihard": {
+            "mean": 0.020355224609375,
+            "min": -0.0283203125,
+            "max": 0.087890625,
+            "nonpositive_fraction": 0.125
+          },
+          "synthetic_semihard": {
+            "mean": -0.00851582270115614,
+            "min": -0.052084922790527344,
+            "max": 0.0606393963098526,
+            "nonpositive_fraction": 0.71875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.0981597900390625,
+      "total_loss": 3.108124256134033,
+      "gradient_norm_before_clip": 16.888994216918945,
+      "learning_rates": [
+        9.998089366284392e-06,
+        9.998089366284391e-07,
+        9.998089366284391e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.16592639684677124,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "af2d5189008ad1a70b427eb3f326d2ba4e625fb8fa335abe4c84f38b582eba87",
+        "support_gap": {
+          "mean": 0.0100555419921875,
+          "min": 0.001953125,
+          "max": 0.021484375,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0014057159423828125,
+            "min": -0.05859375,
+            "max": 0.0654296875,
+            "nonpositive_fraction": 0.6015625
+          },
+          "semihard": {
+            "mean": 0.01930999755859375,
+            "min": -0.0341796875,
+            "max": 0.08984375,
+            "nonpositive_fraction": 0.1640625
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.034268952906131744,
+            "min": -0.08522927761077881,
+            "max": 0.02187982201576233,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.012237548828125,
+            "min": -0.05859375,
+            "max": 0.046875,
+            "nonpositive_fraction": 0.8125
+          },
+          "real_semihard": {
+            "mean": 0.0160675048828125,
+            "min": -0.0341796875,
+            "max": 0.080078125,
+            "nonpositive_fraction": 0.1875
+          },
+          "synthetic_semihard": {
+            "mean": -0.014931831508874893,
+            "min": -0.0604742169380188,
+            "max": 0.05435040593147278,
+            "nonpositive_fraction": 0.84375
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.1762847900390625,
+      "total_loss": 3.1870810985565186,
+      "gradient_norm_before_clip": 16.799575805664062,
+      "learning_rates": [
+        9.997971823764766e-06,
+        9.997971823764766e-07,
+        9.997971823764766e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.17977750301361084,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "0e87905f4b3557fb36ea4630c2940db23569e0bcf7766e1b84cb95954804db35",
+        "support_gap": {
+          "mean": 0.008270263671875,
+          "min": 0.001953125,
+          "max": 0.025390625,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0015506744384765625,
+            "min": -0.064453125,
+            "max": 0.0654296875,
+            "nonpositive_fraction": 0.548828125
+          },
+          "semihard": {
+            "mean": 0.016798019409179688,
+            "min": -0.0244140625,
+            "max": 0.1005859375,
+            "nonpositive_fraction": 0.1484375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03150666505098343,
+            "min": -0.07600834965705872,
+            "max": 0.007998287677764893,
+            "nonpositive_fraction": 0.984375
+          },
+          "real_hard": {
+            "mean": -0.0135498046875,
+            "min": -0.064453125,
+            "max": 0.015625,
+            "nonpositive_fraction": 0.84375
+          },
+          "real_semihard": {
+            "mean": 0.0137176513671875,
+            "min": -0.0244140625,
+            "max": 0.0908203125,
+            "nonpositive_fraction": 0.1875
+          },
+          "synthetic_semihard": {
+            "mean": -0.014446407556533813,
+            "min": -0.05439314246177673,
+            "max": 0.07661643624305725,
+            "nonpositive_fraction": 0.78125
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.9527740478515625,
+      "total_loss": 2.96305775642395,
+      "gradient_norm_before_clip": 16.79009437561035,
+      "learning_rates": [
+        9.997850773476126e-06,
+        9.997850773476125e-07,
+        9.997850773476125e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.17124304175376892,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "d8e618a276d54af9e3bd50b0065838c884362dca1cb84bbb2d9b4fd576b57cc8",
+        "support_gap": {
+          "mean": 0.0108795166015625,
+          "min": 0.0029296875,
+          "max": 0.029296875,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0002593994140625,
+            "min": -0.0703125,
+            "max": 0.056640625,
+            "nonpositive_fraction": 0.52734375
+          },
+          "semihard": {
+            "mean": 0.02230072021484375,
+            "min": -0.041015625,
+            "max": 0.078125,
+            "nonpositive_fraction": 0.189453125
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.029449572786688805,
+            "min": -0.07792335748672485,
+            "max": 0.01468774676322937,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.0117034912109375,
+            "min": -0.0703125,
+            "max": 0.021484375,
+            "nonpositive_fraction": 0.765625
+          },
+          "real_semihard": {
+            "mean": 0.018890380859375,
+            "min": -0.041015625,
+            "max": 0.0654296875,
+            "nonpositive_fraction": 0.21875
+          },
+          "synthetic_semihard": {
+            "mean": -0.009175127372145653,
+            "min": -0.07032144069671631,
+            "max": 0.04501339793205261,
+            "nonpositive_fraction": 0.640625
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.5769710540771484,
+      "total_loss": 2.5883185863494873,
+      "gradient_norm_before_clip": 15.586692810058594,
+      "learning_rates": [
+        9.997726215503422e-06,
+        9.997726215503421e-07,
+        9.997726215503421e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.1889578253030777,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "306d5343874ed77edf875385ebd80e6f250b1173a97aa8330dde074a00c48b69",
+        "support_gap": {
+          "mean": 0.01043701171875,
+          "min": 0.0029296875,
+          "max": 0.04296875,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.004058837890625,
+            "min": -0.04296875,
+            "max": 0.0673828125,
+            "nonpositive_fraction": 0.478515625
+          },
+          "semihard": {
+            "mean": 0.02642822265625,
+            "min": -0.0146484375,
+            "max": 0.0908203125,
+            "nonpositive_fraction": 0.07421875
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.027926284819841385,
+            "min": -0.06527957320213318,
+            "max": 0.025885790586471558,
+            "nonpositive_fraction": 0.984375
+          },
+          "real_hard": {
+            "mean": -0.0087127685546875,
+            "min": -0.04296875,
+            "max": 0.0400390625,
+            "nonpositive_fraction": 0.765625
+          },
+          "real_semihard": {
+            "mean": 0.0227813720703125,
+            "min": -0.0146484375,
+            "max": 0.0810546875,
+            "nonpositive_fraction": 0.109375
+          },
+          "synthetic_semihard": {
+            "mean": -0.006152283400297165,
+            "min": -0.045153796672821045,
+            "max": 0.05518907308578491,
+            "nonpositive_fraction": 0.65625
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.0203857421875,
+      "total_loss": 3.031113624572754,
+      "gradient_norm_before_clip": 16.036378860473633,
+      "learning_rates": [
+        9.99759814993408e-06,
+        9.997598149934077e-07,
+        9.997598149934077e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.17863914370536804,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "6a973b528876d532a0f947c5c3afdbdc0a6b7d28b67a8e20c57b314881617c20",
+        "support_gap": {
+          "mean": 0.0090484619140625,
+          "min": 0.001953125,
+          "max": 0.021484375,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0008544921875,
+            "min": -0.0556640625,
+            "max": 0.0673828125,
+            "nonpositive_fraction": 0.5
+          },
+          "semihard": {
+            "mean": 0.018243789672851562,
+            "min": -0.0380859375,
+            "max": 0.0966796875,
+            "nonpositive_fraction": 0.1875
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.034720905125141144,
+            "min": -0.08131402730941772,
+            "max": 0.020513981580734253,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.01275634765625,
+            "min": -0.0556640625,
+            "max": 0.0205078125,
+            "nonpositive_fraction": 0.796875
+          },
+          "real_semihard": {
+            "mean": 0.015411376953125,
+            "min": -0.0380859375,
+            "max": 0.0869140625,
+            "nonpositive_fraction": 0.203125
+          },
+          "synthetic_semihard": {
+            "mean": -0.014083893969655037,
+            "min": -0.06762963533401489,
+            "max": 0.06435948610305786,
+            "nonpositive_fraction": 0.78125
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.9679813385009766,
+      "total_loss": 2.9787769317626953,
+      "gradient_norm_before_clip": 17.4559383392334,
+      "learning_rates": [
+        9.997466576857974e-06,
+        9.997466576857974e-07,
+        9.997466576857974e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.17976777255535126,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "21f3fb4b4a2884a8e54054b7c167fbb6f792c409230879c218acc3d76cf432dd",
+        "support_gap": {
+          "mean": 0.0097503662109375,
+          "min": 0.0029296875,
+          "max": 0.029296875,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0002288818359375,
+            "min": -0.041015625,
+            "max": 0.068359375,
+            "nonpositive_fraction": 0.556640625
+          },
+          "semihard": {
+            "mean": 0.020532608032226562,
+            "min": -0.0185546875,
+            "max": 0.0947265625,
+            "nonpositive_fraction": 0.109375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.0321061834692955,
+            "min": -0.06548210978507996,
+            "max": 0.02904006838798523,
+            "nonpositive_fraction": 0.984375
+          },
+          "real_hard": {
+            "mean": -0.012176513671875,
+            "min": -0.041015625,
+            "max": 0.037109375,
+            "nonpositive_fraction": 0.875
+          },
+          "real_semihard": {
+            "mean": 0.0173187255859375,
+            "min": -0.0185546875,
+            "max": 0.0869140625,
+            "nonpositive_fraction": 0.171875
+          },
+          "synthetic_semihard": {
+            "mean": -0.0116327665746212,
+            "min": -0.05004891753196716,
+            "max": 0.060504525899887085,
+            "nonpositive_fraction": 0.828125
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.066131591796875,
+      "total_loss": 3.0769662857055664,
+      "gradient_norm_before_clip": 16.067180633544922,
+      "learning_rates": [
+        9.997331496367455e-06,
+        9.997331496367454e-07,
+        9.997331496367454e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.18041794002056122,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "b4a71293b3b71e2c0ac9f47f253efd3fd9219b056d6c98357ba3323e5eeb3151",
+        "support_gap": {
+          "mean": 0.0088043212890625,
+          "min": 0.001953125,
+          "max": 0.0234375,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.00156402587890625,
+            "min": -0.0458984375,
+            "max": 0.056640625,
+            "nonpositive_fraction": 0.607421875
+          },
+          "semihard": {
+            "mean": 0.017597198486328125,
+            "min": -0.0263671875,
+            "max": 0.0703125,
+            "nonpositive_fraction": 0.166015625
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03320891410112381,
+            "min": -0.06157553195953369,
+            "max": 0.01546388864517212,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.013519287109375,
+            "min": -0.0458984375,
+            "max": 0.03125,
+            "nonpositive_fraction": 0.859375
+          },
+          "real_semihard": {
+            "mean": 0.0149993896484375,
+            "min": -0.0263671875,
+            "max": 0.0654296875,
+            "nonpositive_fraction": 0.21875
+          },
+          "synthetic_semihard": {
+            "mean": -0.015756573528051376,
+            "min": -0.0686350166797638,
+            "max": 0.04392969608306885,
+            "nonpositive_fraction": 0.796875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.99273681640625,
+      "total_loss": 3.0029757022857666,
+      "gradient_norm_before_clip": 16.69430160522461,
+      "learning_rates": [
+        9.997192908557322e-06,
+        9.997192908557322e-07,
+        9.997192908557322e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.17049464583396912,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "4f2da426e84d7afed58cf003b72f9a8938668b844d234b2f61d2e7f31fa13daf",
+        "support_gap": {
+          "mean": 0.0089569091796875,
+          "min": 0.001953125,
+          "max": 0.0205078125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0003509521484375,
+            "min": -0.05078125,
+            "max": 0.0771484375,
+            "nonpositive_fraction": 0.564453125
+          },
+          "semihard": {
+            "mean": 0.0196685791015625,
+            "min": -0.0263671875,
+            "max": 0.0986328125,
+            "nonpositive_fraction": 0.17578125
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.02874908223748207,
+            "min": -0.07530170679092407,
+            "max": 0.02710413932800293,
+            "nonpositive_fraction": 0.9375
+          },
+          "real_hard": {
+            "mean": -0.011810302734375,
+            "min": -0.05078125,
+            "max": 0.033203125,
+            "nonpositive_fraction": 0.828125
+          },
+          "real_semihard": {
+            "mean": 0.0164337158203125,
+            "min": -0.0263671875,
+            "max": 0.0927734375,
+            "nonpositive_fraction": 0.21875
+          },
+          "synthetic_semihard": {
+            "mean": -0.009401841089129448,
+            "min": -0.05194714665412903,
+            "max": 0.07702037692070007,
+            "nonpositive_fraction": 0.75
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.896514892578125,
+      "total_loss": 2.9061505794525146,
+      "gradient_norm_before_clip": 15.978055000305176,
+      "learning_rates": [
+        9.997050813524843e-06,
+        9.997050813524841e-07,
+        9.997050813524841e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.16045311093330383,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "b60d6e2452c530bd9e24ae6c2bc1f4e0ca44635ddc5e770268f60047343af713",
+        "support_gap": {
+          "mean": 0.0090484619140625,
+          "min": 0.001953125,
+          "max": 0.021484375,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.00070953369140625,
+            "min": -0.0517578125,
+            "max": 0.044921875,
+            "nonpositive_fraction": 0.552734375
+          },
+          "semihard": {
+            "mean": 0.019983291625976562,
+            "min": -0.0185546875,
+            "max": 0.0732421875,
+            "nonpositive_fraction": 0.125
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03118450939655304,
+            "min": -0.06532961130142212,
+            "max": 0.008364498615264893,
+            "nonpositive_fraction": 0.9375
+          },
+          "real_hard": {
+            "mean": -0.010101318359375,
+            "min": -0.0517578125,
+            "max": 0.03125,
+            "nonpositive_fraction": 0.734375
+          },
+          "real_semihard": {
+            "mean": 0.017059326171875,
+            "min": -0.0185546875,
+            "max": 0.0615234375,
+            "nonpositive_fraction": 0.1875
+          },
+          "synthetic_semihard": {
+            "mean": -0.01403109636157751,
+            "min": -0.05580902099609375,
+            "max": 0.03928308188915253,
+            "nonpositive_fraction": 0.78125
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.246826171875,
+      "total_loss": 3.2571723461151123,
+      "gradient_norm_before_clip": 16.363405227661133,
+      "learning_rates": [
+        9.996905211369748e-06,
+        9.996905211369745e-07,
+        9.996905211369745e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.17228350043296814,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "c26087c721c055aea637ed183a4d7ee2c181436602bbb9097ccdc082ae07d9d5",
+        "support_gap": {
+          "mean": 0.008941650390625,
+          "min": 0.001953125,
+          "max": 0.044921875,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0034503936767578125,
+            "min": -0.0458984375,
+            "max": 0.0546875,
+            "nonpositive_fraction": 0.638671875
+          },
+          "semihard": {
+            "mean": 0.0158233642578125,
+            "min": -0.0244140625,
+            "max": 0.1171875,
+            "nonpositive_fraction": 0.2109375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.03604893013834953,
+            "min": -0.06907111406326294,
+            "max": 0.000995248556137085,
+            "nonpositive_fraction": 0.984375
+          },
+          "real_hard": {
+            "mean": -0.0147247314453125,
+            "min": -0.0458984375,
+            "max": 0.01953125,
+            "nonpositive_fraction": 0.90625
+          },
+          "real_semihard": {
+            "mean": 0.0128021240234375,
+            "min": -0.0244140625,
+            "max": 0.099609375,
+            "nonpositive_fraction": 0.265625
+          },
+          "synthetic_semihard": {
+            "mean": -0.0170733742415905,
+            "min": -0.06167101860046387,
+            "max": 0.08866895735263824,
+            "nonpositive_fraction": 0.859375
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.7442989349365234,
+      "total_loss": 2.755338668823242,
+      "gradient_norm_before_clip": 15.631547927856445,
+      "learning_rates": [
+        9.996756102194222e-06,
+        9.99675610219422e-07,
+        9.99675610219422e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.18383188545703888,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "aa4c6cdb1434f0e29d0cb725781c4c8b28a71b90d7c31ee5ff7e4593bd7c6fc4",
+        "support_gap": {
+          "mean": 0.010284423828125,
+          "min": 0.001953125,
+          "max": 0.0234375,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.0020275115966796875,
+            "min": -0.0458984375,
+            "max": 0.0771484375,
+            "nonpositive_fraction": 0.533203125
+          },
+          "semihard": {
+            "mean": 0.023015975952148438,
+            "min": -0.015625,
+            "max": 0.09765625,
+            "nonpositive_fraction": 0.068359375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.028275296092033386,
+            "min": -0.061751723289489746,
+            "max": 0.015956521034240723,
+            "nonpositive_fraction": 0.9375
+          },
+          "real_hard": {
+            "mean": -0.010223388671875,
+            "min": -0.0458984375,
+            "max": 0.01953125,
+            "nonpositive_fraction": 0.828125
+          },
+          "real_semihard": {
+            "mean": 0.0199127197265625,
+            "min": -0.015625,
+            "max": 0.091796875,
+            "nonpositive_fraction": 0.078125
+          },
+          "synthetic_semihard": {
+            "mean": -0.008515501394867897,
+            "min": -0.049865782260894775,
+            "max": 0.06570890545845032,
+            "nonpositive_fraction": 0.734375
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.962249755859375,
+      "total_loss": 2.973247766494751,
+      "gradient_norm_before_clip": 15.537580490112305,
+      "learning_rates": [
+        9.996603486102918e-06,
+        9.996603486102918e-07,
+        9.996603486102918e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.18313559889793396,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "99c4eea45adc1946ac493bb3edd6854a8e4071a18cb1cd50897c0fc75b56c02e",
+        "support_gap": {
+          "mean": 0.0089874267578125,
+          "min": 0.001953125,
+          "max": 0.0283203125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0002422332763671875,
+            "min": -0.052734375,
+            "max": 0.0458984375,
+            "nonpositive_fraction": 0.591796875
+          },
+          "semihard": {
+            "mean": 0.020032882690429688,
+            "min": -0.015625,
+            "max": 0.0859375,
+            "nonpositive_fraction": 0.109375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.032611697912216187,
+            "min": -0.0631314218044281,
+            "max": -0.003151506185531616,
+            "nonpositive_fraction": 1.0
+          },
+          "real_hard": {
+            "mean": -0.0125885009765625,
+            "min": -0.052734375,
+            "max": 0.015625,
+            "nonpositive_fraction": 0.828125
+          },
+          "real_semihard": {
+            "mean": 0.01708984375,
+            "min": -0.015625,
+            "max": 0.07421875,
+            "nonpositive_fraction": 0.171875
+          },
+          "synthetic_semihard": {
+            "mean": -0.011732754297554493,
+            "min": -0.046967774629592896,
+            "max": 0.054204463958740234,
+            "nonpositive_fraction": 0.75
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.939788818359375,
+      "total_loss": 2.950957775115967,
+      "gradient_norm_before_clip": 16.055768966674805,
+      "learning_rates": [
+        9.996447363202947e-06,
+        9.996447363202945e-07,
+        9.996447363202945e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.18598222732543945,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "d81a3193aca056d8d4f3ddd11d3b51f707ba67d7d8f9613ae8dfbb86564a0050",
+        "support_gap": {
+          "mean": 0.0110015869140625,
+          "min": 0.0029296875,
+          "max": 0.0341796875,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.000354766845703125,
+            "min": -0.068359375,
+            "max": 0.0498046875,
+            "nonpositive_fraction": 0.5234375
+          },
+          "semihard": {
+            "mean": 0.022344589233398438,
+            "min": -0.0244140625,
+            "max": 0.0693359375,
+            "nonpositive_fraction": 0.1484375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.030839908868074417,
+            "min": -0.07588940858840942,
+            "max": 0.00215032696723938,
+            "nonpositive_fraction": 0.984375
+          },
+          "real_hard": {
+            "mean": -0.012237548828125,
+            "min": -0.068359375,
+            "max": 0.013671875,
+            "nonpositive_fraction": 0.828125
+          },
+          "real_semihard": {
+            "mean": 0.0187835693359375,
+            "min": -0.0244140625,
+            "max": 0.0615234375,
+            "nonpositive_fraction": 0.171875
+          },
+          "synthetic_semihard": {
+            "mean": -0.009619288146495819,
+            "min": -0.0532984733581543,
+            "max": 0.032986462116241455,
+            "nonpositive_fraction": 0.671875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.9806137084960938,
+      "total_loss": 2.990513563156128,
+      "gradient_norm_before_clip": 15.019479751586914,
+      "learning_rates": [
+        9.996287733603883e-06,
+        9.996287733603882e-07,
+        9.996287733603882e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.1648499071598053,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "d45a503b53e12bd737330cc5ac54231822abbbeee16031051f2d7a4ebab5f237",
+        "support_gap": {
+          "mean": 0.0102691650390625,
+          "min": 0.0029296875,
+          "max": 0.025390625,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.0008983612060546875,
+            "min": -0.046875,
+            "max": 0.0556640625,
+            "nonpositive_fraction": 0.59765625
+          },
+          "semihard": {
+            "mean": 0.020868301391601562,
+            "min": -0.02734375,
+            "max": 0.080078125,
+            "nonpositive_fraction": 0.09765625
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.031073857098817825,
+            "min": -0.07272127270698547,
+            "max": 0.014032602310180664,
+            "nonpositive_fraction": 0.953125
+          },
+          "real_hard": {
+            "mean": -0.011474609375,
+            "min": -0.046875,
+            "max": 0.0234375,
+            "nonpositive_fraction": 0.875
+          },
+          "real_semihard": {
+            "mean": 0.016937255859375,
+            "min": -0.02734375,
+            "max": 0.064453125,
+            "nonpositive_fraction": 0.15625
+          },
+          "synthetic_semihard": {
+            "mean": -0.012419551610946655,
+            "min": -0.06252840161323547,
+            "max": 0.045826733112335205,
+            "nonpositive_fraction": 0.734375
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.9405593872070312,
+      "total_loss": 2.9522085189819336,
+      "gradient_norm_before_clip": 17.362276077270508,
+      "learning_rates": [
+        9.99612459741776e-06,
+        9.996124597417759e-07,
+        9.996124597417759e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.1939779371023178,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "c367309a02187904d3fe9c51390dee7ef7776e21414806e45cffcda2e841764d",
+        "support_gap": {
+          "mean": 0.0120849609375,
+          "min": 0.0029296875,
+          "max": 0.044921875,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.000102996826171875,
+            "min": -0.0751953125,
+            "max": 0.0625,
+            "nonpositive_fraction": 0.529296875
+          },
+          "semihard": {
+            "mean": 0.024333953857421875,
+            "min": -0.017578125,
+            "max": 0.0888671875,
+            "nonpositive_fraction": 0.12890625
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.030272122472524643,
+            "min": -0.07969337701797485,
+            "max": 0.011289924383163452,
+            "nonpositive_fraction": 0.96875
+          },
+          "real_hard": {
+            "mean": -0.0123748779296875,
+            "min": -0.0751953125,
+            "max": 0.025390625,
+            "nonpositive_fraction": 0.78125
+          },
+          "real_semihard": {
+            "mean": 0.020599365234375,
+            "min": -0.017578125,
+            "max": 0.080078125,
+            "nonpositive_fraction": 0.140625
+          },
+          "synthetic_semihard": {
+            "mean": -0.0075481305830180645,
+            "min": -0.05320128798484802,
+            "max": 0.05904403328895569,
+            "nonpositive_fraction": 0.703125
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 2.7460479736328125,
+      "total_loss": 2.7560958862304688,
+      "gradient_norm_before_clip": 15.12187671661377,
+      "learning_rates": [
+        9.995957954759073e-06,
+        9.995957954759072e-07,
+        9.995957954759072e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.16731709241867065,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "fe4eaf41664a6c228a7c866a211ccf45aac79ee539f6c268fcabd9344d396d4e",
+        "support_gap": {
+          "mean": 0.0101776123046875,
+          "min": 0.0029296875,
+          "max": 0.033203125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": 0.001285552978515625,
+            "min": -0.05078125,
+            "max": 0.05078125,
+            "nonpositive_fraction": 0.5390625
+          },
+          "semihard": {
+            "mean": 0.022609710693359375,
+            "min": -0.017578125,
+            "max": 0.080078125,
+            "nonpositive_fraction": 0.076171875
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.02919761650264263,
+            "min": -0.0670350193977356,
+            "max": 0.004880666732788086,
+            "nonpositive_fraction": 0.96875
+          },
+          "real_hard": {
+            "mean": -0.0096588134765625,
+            "min": -0.05078125,
+            "max": 0.021484375,
+            "nonpositive_fraction": 0.765625
+          },
+          "real_semihard": {
+            "mean": 0.019134521484375,
+            "min": -0.017578125,
+            "max": 0.05859375,
+            "nonpositive_fraction": 0.109375
+          },
+          "synthetic_semihard": {
+            "mean": -0.011527329683303833,
+            "min": -0.051795899868011475,
+            "max": 0.0439387708902359,
+            "nonpositive_fraction": 0.796875
+          }
+        }
+      }
+    },
+    {
+      "native_loss": 3.1970062255859375,
+      "total_loss": 3.207866668701172,
+      "gradient_norm_before_clip": 15.672256469726562,
+      "learning_rates": [
+        9.995787805744778e-06,
+        9.995787805744777e-07,
+        9.995787805744777e-07
+      ],
+      "coefficient": 0.06005351588542947,
+      "rng_after_sha256": "eec80a339c748c9eceec8dca7c7b40681d0b12c10ea861562dad49c6d4d1dddc",
+      "auxiliary_loss": 0.1808476746082306,
+      "selection": {
+        "overlap_count": 0,
+        "diagonal_count": 0,
+        "supports_sha256": "bbdf5ad4fd7710a13767eada9450a7c8f808df5bad9222c4c8897a08d44c0935",
+        "support_gap": {
+          "mean": 0.0089874267578125,
+          "min": 0.001953125,
+          "max": 0.03125,
+          "nonpositive_fraction": 0.0
+        },
+        "support_margins": {
+          "hard": {
+            "mean": -0.001888275146484375,
+            "min": -0.0517578125,
+            "max": 0.0556640625,
+            "nonpositive_fraction": 0.56640625
+          },
+          "semihard": {
+            "mean": 0.017831802368164062,
+            "min": -0.03125,
+            "max": 0.0859375,
+            "nonpositive_fraction": 0.255859375
+          }
+        },
+        "candidate_margins": {
+          "synthetic_hard": {
+            "mean": -0.0324302613735199,
+            "min": -0.07690393924713135,
+            "max": 0.01672518253326416,
+            "nonpositive_fraction": 0.921875
+          },
+          "real_hard": {
+            "mean": -0.0144500732421875,
+            "min": -0.0517578125,
+            "max": 0.029296875,
+            "nonpositive_fraction": 0.859375
+          },
+          "real_semihard": {
+            "mean": 0.01446533203125,
+            "min": -0.03125,
+            "max": 0.07421875,
+            "nonpositive_fraction": 0.296875
+          },
+          "synthetic_semihard": {
+            "mean": -0.01397804543375969,
+            "min": -0.06521433591842651,
+            "max": 0.04937979578971863,
+            "nonpositive_fraction": 0.75
+          }
+        }
+      }
+    }
+  ],
+  "pressure_probes": {
+    "0": {
+      "native_norm": 15.55022145202541,
+      "weighted_aux_norm": 0.2168411261271556,
+      "ratio": 0.01394456836490339,
+      "cosine": 0.23570075389608336
+    },
+    "10": {
+      "native_norm": 15.698278364314847,
+      "weighted_aux_norm": 0.2693161866579095,
+      "ratio": 0.017155778513274177,
+      "cosine": 0.2874178961376069
+    },
+    "25": {
+      "native_norm": 17.652780701745158,
+      "weighted_aux_norm": 0.22643808533310947,
+      "ratio": 0.012827332370968827,
+      "cosine": 0.303307413390434
+    }
+  }
+}

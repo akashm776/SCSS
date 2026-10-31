@@ -1,0 +1,170 @@
+{
+  "status": "PASS",
+  "contract_sha256": "18788d25da8d526141fd77429f444253ed86893669a25d24f583696aa3252df2",
+  "input_sha256": {
+    "acceptance.json": "5355bf31a8e0eaa67aa19487df0ce9eaa553f77854e418ed9fca08d4c5832720",
+    "run_config.json": "7d1fdcf285abacbd3265eaf8b2b6f1b16f65024ba015f93acaaf3563e005f26b",
+    "index.json": "f28643883d2a739b8077355b58767b037cd43aff0ede28bbc700a67a41ca47bb",
+    "checks/6e019efc106a46d1f939bac9f9ac7e22c586659c2aaddf926939073441ed9729.json": "176211576113f125bd7fe71d5b893527c1bfd56bca7dff725f55c411104153ae"
+  },
+  "context": {
+    "batch_offset": 0,
+    "eligible_queries": [
+      0,
+      1,
+      4,
+      5,
+      6,
+      8,
+      10,
+      11,
+      14,
+      16,
+      17,
+      18,
+      20,
+      23,
+      24,
+      27,
+      30,
+      32,
+      33,
+      34,
+      36,
+      37,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      47,
+      49,
+      50,
+      55,
+      56
+    ],
+    "population": "continuation",
+    "stream_seed": 2026100101,
+    "training_seed": 271828,
+    "weight_step": 100
+  },
+  "vjp_summary": {
+    "source": {
+      "count": 102,
+      "max_relative_vector_error": 0.0,
+      "min_cosine": 0.9999999999999998,
+      "min_norm": 69.2819441561408,
+      "max_norm": 73.03710048699456
+    },
+    "carrier": {
+      "count": 102,
+      "max_relative_vector_error": 0.0,
+      "min_cosine": 0.9999999999999997,
+      "min_norm": 99.99642338639242,
+      "max_norm": 99.99643704011766
+    },
+    "query": {
+      "count": 102,
+      "max_relative_vector_error": 0.0,
+      "min_cosine": 0.9999999999999997,
+      "min_norm": 99.99642617978927,
+      "max_norm": 99.99643867495801
+    }
+  },
+  "scale": {
+    "Boundary": {
+      "candidate": [
+        true,
+        true
+      ],
+      "loss": [
+        true,
+        true
+      ],
+      "partition": [
+        true,
+        true
+      ]
+    },
+    "Correct": {
+      "candidate": [
+        true,
+        true
+      ],
+      "loss": [
+        true,
+        true
+      ],
+      "partition": [
+        true,
+        true
+      ]
+    },
+    "Wrong": {
+      "candidate": [
+        true,
+        true
+      ],
+      "loss": [
+        true,
+        true
+      ],
+      "partition": [
+        true,
+        true
+      ]
+    },
+    "logit_scale": {
+      "error": 2.4139881134033203e-06,
+      "expected": 0.22611406445503235,
+      "observed": 0.22611165046691895,
+      "tolerance": 3.2611406445503237e-06
+    },
+    "tau": {
+      "error": 2.421438694000244e-08,
+      "expected": 0.002261221408843994,
+      "observed": 0.002261197194457054,
+      "tolerance": 1.02261221408844e-06
+    }
+  },
+  "native_gradient_norm": 18.22787244811616,
+  "native_nonzero_tensors": 35,
+  "auxiliary_gradients": {
+    "H-Uniform": {
+      "norm": 13.455212782486218,
+      "unweighted_ratio_to_native": 0.7381669375175383,
+      "cosine_to_native": null,
+      "cosine_to_uniform": null,
+      "nonzero_tensors": 34
+    },
+    "Wrong": {
+      "norm": 1.2900147999638185,
+      "unweighted_ratio_to_native": 0.07077155074656784,
+      "cosine_to_native": 0.12052633517835874,
+      "cosine_to_uniform": 0.8631220860872314,
+      "nonzero_tensors": 34
+    },
+    "Boundary": {
+      "norm": 1.1700603734615167,
+      "unweighted_ratio_to_native": 0.06419072641593132,
+      "cosine_to_native": 0.12021317526927007,
+      "cosine_to_uniform": 0.862608667722774,
+      "nonzero_tensors": 34
+    },
+    "Correct": {
+      "norm": 1.0559628917609134,
+      "unweighted_ratio_to_native": 0.05793122015564941,
+      "cosine_to_native": 0.119900115385951,
+      "cosine_to_uniform": 0.8615071022904213,
+      "nonzero_tensors": 34
+    }
+  },
+  "forward_reproduction": "exact",
+  "state_preserved": true,
+  "optimizer_updates": 0,
+  "calibration_batches": 0,
+  "limitation": "Audit of saved gradient metrics, not independent gradient recomputation. One uncalibrated starting batch only; no utility or full-population claim.",
+  "source_zip_sha256": "187591053691b346fd5657646c534edb978c7042d17f7a876b8690d6e145b8c9"
+}

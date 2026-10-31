@@ -1,0 +1,402 @@
+{
+  "experiment": "clip_geometry_audit_v1",
+  "phase": "D0",
+  "status": "protocol_frozen_not_implemented_not_run",
+  "selected_after_experiment_c": true,
+  "d1_protocol_frozen": false,
+  "question": "Can H/M/C/I source regimes be defined feasibly and distinctly on matched training exposures at native weights 100 and 500?",
+  "parent_run": "clip_pressure_20261007T235549_427102Z",
+  "parent_bundle_id": "79f1ab673de6bc888b8dd85a56c04c01e5d481da4533b33700e1d607012424ce",
+  "training_seeds": [
+    271828,
+    161803,
+    141421
+  ],
+  "stream_seeds": [
+    2026100101,
+    2026100102
+  ],
+  "checkpoint_steps": [
+    100,
+    500
+  ],
+  "batch_size": 64,
+  "negative_candidates_per_query": 63,
+  "support_sizes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "plan": "configs/clip_geometry_audit_plan.json",
+  "populations": {
+    "primary": {
+      "source": "matched_continuation",
+      "offsets": [
+        0
+      ],
+      "query_exposures_per_state": 384
+    },
+    "extended": {
+      "source": "matched_continuation",
+      "offsets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "query_exposures_per_state": 19200,
+      "includes_primary": true,
+      "fixed_weights_all_offsets": true
+    },
+    "calibration_feasibility": {
+      "source": "C_four_training_only_calibration_batches_per_seed",
+      "batch_offsets": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "query_exposures_per_state": 768,
+      "no_gradient_calibration": true,
+      "reported_separately": true
+    }
+  },
+  "checkpoint_preparation": {
+    "history": "native_only",
+    "load_authenticated_existing_snapshots_if_available": true,
+    "regenerate_if_missing": true,
+    "max_native_updates_if_all_regenerated": 1500,
+    "expected_trunk_updates_per_seed": 500,
+    "native_replay_reference": "configs/clip_optimizer_reset_reference.json",
+    "require_trunk_and_start_fingerprints": true,
+    "audit_updates": 0,
+    "record_actual_preparation_updates_separately": true,
+    "no_reporting_evaluation": true
+  },
+  "environment": {
+    "gpu": "one NVIDIA A100 with >=39 GB",
+    "packages": {
+      "torch": "2.11.0+cu128",
+      "torchvision": "0.26.0+cu128",
+      "transformers": "4.57.3",
+      "datasets": "2.21.0",
+      "numpy": "2.1.3",
+      "PyYAML": "6.0.3"
+    },
+    "model": "openai/clip-vit-base-patch32",
+    "processor_and_trainable_policy": "same as C",
+    "no_silent_package_replacement": true
+  },
+  "forward": {
+    "model_mode": "train within state-preserving observation",
+    "autograd": "disabled; no backward",
+    "encoder_precision": "normal C CUDA bf16 autocast forward",
+    "rng": "restore seed native checkpoint100 RNG inside every batch audit; identical across weights; restore caller afterward",
+    "one_shared_forward_per_batch_and_weight": true,
+    "do_not_advance_model_or_rng_across_audit_batches": true,
+    "preserve": [
+      "parameters",
+      "buffers",
+      "per_module_training_modes",
+      "parameter_gradients",
+      "python_rng",
+      "numpy_rng",
+      "torch_cpu_rng",
+      "all_cuda_rng",
+      "optimizer_if_present",
+      "scheduler_if_present",
+      "precision_backend_settings"
+    ],
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "state_digests_before_after_each_operation": true
+  },
+  "scoring": {
+    "input": "detach forward image/text features, cast float32, then L2 renormalize",
+    "selection_autocast": false,
+    "float32_matmul_precision": "highest",
+    "allow_tf32": false,
+    "allow_bf16_reduced_precision_reduction": false,
+    "allow_fp16_reduced_precision_reduction": false,
+    "precision_flags_scope": "selection and candidate-audit computations only; preserve original flags around the historical encoder forward/preparation",
+    "similarity": "Q @ V.T; float32 cosine; no clamping",
+    "margin": "positive_diagonal_cosine minus candidate_cosine",
+    "positive": "r > 0 strictly",
+    "nonpositive": "r <= 0",
+    "separate_negative_and_zero_counts": true,
+    "exclude": "paired image index only; no species filtering",
+    "ties": "ascending batch index after primary score key; stable sorting"
+  },
+  "regimes": {
+    "H": {
+      "support": "top k by descending similarity",
+      "select": "first support member"
+    },
+    "M": {
+      "support": "global similarity ranks 16 through 15+k inclusive",
+      "select": "rank16"
+    },
+    "C": {
+      "support": "k smallest strictly positive margins",
+      "select": "smallest positive margin"
+    },
+    "I": {
+      "support": "k smallest absolute nonpositive margins",
+      "select": "smallest absolute nonpositive margin"
+    }
+  },
+  "candidate_paths": {
+    "ideal_fp32": {
+      "source": "FP32-renormalized forward embeddings",
+      "weights": "uniform 1/k, detached",
+      "mixture": "mean of selected V rows then normalize in FP32",
+      "similarity": "dot FP32 unit query with unit candidate"
+    },
+    "reference_mixed": {
+      "support": "identical frozen FP32-selected IDs; no reselection",
+      "weights": "support cast to original raw_similarity dtype divided by its row sum, detached; then cast to original image feature dtype",
+      "mixture": "weights @ original image_features under CUDA bf16 autocast, then torch.nn.functional.normalize(dim=-1, eps=1e-12)",
+      "training_score": "(original text_features * generated_candidate).sum(-1) inside same autocast; positive from original raw_similarity diagonal",
+      "selection_score": "renormalize generated candidate in FP32 and dot FP32-renormalized query, relative to FP32 positive",
+      "select_reference": "original raw_similarity entry at selected index; also record FP32 selection margin",
+      "scope": "candidate reference path only; this does not freeze D1 arms, outcomes, pressure or estimand"
+    }
+  },
+  "validity": {
+    "input_embedding_norm_min_exclusive": 1e-06,
+    "mixture_norm_min_exclusive": 1e-06,
+    "ideal_invariant_absolute_tolerance": 1e-05,
+    "ideal_unit_norm_absolute_tolerance": 1e-05,
+    "finite_inputs_and_scores_required": true,
+    "strict_signs_do_not_use_tolerance": true,
+    "insufficient_support": "undefined support and candidates, availability recorded; continue D0",
+    "invalid_mixture": "retain source support and source statistics; null affected synthetic fields with reason; flag construction numerical infeasibility; continue D0",
+    "invalid_forward_or_score": "save failure and stop audit; no silent omission",
+    "I_invariant": "if FP32 positive cosine >= 0 and ideal mixture valid: r_ideal_synth <= r_ideal_select + 1e-5 and r_ideal_select <= 1e-5",
+    "invariant_failure": "save record and stop; no automatic retry or tolerance adjustment",
+    "mixed_precision_disagreement": "record separately; ideal invariant is not enforced across different scoring/normalization paths",
+    "other_invariants": [
+      "N_positive+N_nonpositive=63",
+      "N_negative+N_zero=N_nonpositive",
+      "no diagonal support",
+      "support size=k when feasible",
+      "C/I overlap=0 whenever both exist",
+      "H/C overlap=k minus number of nonpositive H contributors when C feasible",
+      "ideal k1 select/synth equality within 1e-5"
+    ],
+    "missing_statistics": "null with denominator and reason, never zero; missing mixture does not erase valid source overlap"
+  },
+  "measurements": {
+    "save_query_numeric_records": true,
+    "save_captions_images_embeddings": false,
+    "fields": [
+      "positive_cosine_both_paths",
+      "63 candidate source IDs and species IDs",
+      "all63 FP32 margins and original-forward margins",
+      "N_negative",
+      "N_zero",
+      "N_positive",
+      "N_nonpositive",
+      "all_k_feasibility",
+      "E_k",
+      "ordered support IDs and canonical support hashes",
+      "contributor margins",
+      "selected real ID and margins",
+      "ideal and reference-mixed pre-normalization norms",
+      "ideal and reference-mixed synthetic margins",
+      "synthetic-minus-real margin",
+      "absolute synthetic margin minus absolute real margin",
+      "same-species source/real rates",
+      "all six pairwise support overlaps and support equality",
+      "historical H/M k8 overlap and exact-set agreement",
+      "precision sign and selected-set disagreements",
+      "validity and invariant flags"
+    ],
+    "small_margin_absolute_thresholds": [
+      0.001,
+      0.005,
+      0.01
+    ],
+    "small_margin_threshold_role": "descriptive coverage only; no selection filter, utility proxy or k optimization",
+    "quantile_probabilities": [
+      0,
+      0.01,
+      0.05,
+      0.25,
+      0.5,
+      0.75,
+      0.95,
+      0.99,
+      1
+    ],
+    "quantile_method": "linear",
+    "histogram_edges": [
+      -2,
+      -0.1,
+      -0.05,
+      -0.02,
+      -0.01,
+      -0.005,
+      -0.001,
+      -1e-05,
+      0,
+      1e-05,
+      0.001,
+      0.005,
+      0.01,
+      0.02,
+      0.05,
+      0.1,
+      2
+    ],
+    "histogram_rule": "left-inclusive/right-exclusive except final bin includes upper edge; explicit underflow, overflow, exact-zero and missing counts",
+    "support_hash": "SHA256 of UTF-8 canonical JSON (sorted keys, separators comma/colon, no NaN) of ordered batch indices and corresponding source indices; set equality computed separately from ordered hash"
+  },
+  "analysis": {
+    "unit": "query exposure, not unique image or independent replicate",
+    "strata": [
+      "population",
+      "weight",
+      "seed",
+      "stream_if_present",
+      "batch_offset",
+      "k",
+      "regime",
+      "candidate_path"
+    ],
+    "primary_feasibility": "all k curves, N_nonpositive=0, and joint C/I eligibility at both weights on initial batches",
+    "extended_feasibility": "same summaries across all50 fixed-model batches; primary is a subset, never add sample counts",
+    "cross_state_key": [
+      "population",
+      "training_seed",
+      "stream_if_present",
+      "batch_offset",
+      "query_index",
+      "source_index",
+      "caption_index"
+    ],
+    "eligibility_transitions": [
+      "both",
+      "early_only",
+      "late_only",
+      "neither"
+    ],
+    "paired_comparisons": "common eligible and numerically valid exposure intersection for compared regimes/paths/states, with denominators and coverage; also report regime-specific populations separately",
+    "conditional_distributions": "pooled exposure distributions, explicitly labelled; source-member distributions labelled separately from query-level summaries",
+    "macro_means": "streams within seed then equal seeds; per-stream conditional means require nonempty denominator in every required stratum or macro mean is null; pooled alternatives separately labelled",
+    "calibration_means": "seeds equally, no artificial duplication by stream",
+    "semantics": "same-species association is descriptive, not an identified false-negative label",
+    "no_p_values_no_independent_confirmation": true
+  },
+  "historical_comparison": {
+    "k": 8,
+    "rule": "apply exact B select_supports(raw_similarity,k=8,start_rank=16) to same forward; compare support sets to new FP32 H/M",
+    "reference_module": "src/clip_difficulty.py",
+    "same_forward_not_evolved_C_trajectory": true,
+    "infeasibility_lower_bounds": {
+      "100": {
+        "at_least": 168,
+        "query_exposures": 384
+      },
+      "500": {
+        "at_least": 217,
+        "query_exposures": 384
+      }
+    },
+    "lower_bounds_are_not_D0_measurements": true
+  },
+  "design_decisions": {
+    "all_query_candidate": "k>=2; 100% structural support availability for every required C/I query at both states, over extended continuation and separate calibration populations; valid synthesis required on both paths",
+    "candidate_sizes": "report every passing k; do not automatically select one",
+    "k1": "feasibility diagnostic only; not a uniform-synthesis-vs-selection contrast",
+    "zero_nonpositive": "any such intended query rules out all-query in-batch I for every k>=1 on that audited population",
+    "eligible_query_design": "report within-state and cross-state common coverage; no automatic coverage cutoff or D1 enrollment rule",
+    "redundancy": "report full overlap/equality curves; exact redundancy requires all common feasible supports equal, nonempty coverage, and same real/synthetic candidate paths; no automatic near-redundancy threshold or arm removal",
+    "forbidden": "selecting k, arms or populations to maximize apparently helpful margins, expected training utility, reporting outcomes or retrieval",
+    "amendment": "new version and stated feasibility/separability rationale before new D0 computation if candidate pool/scoring changes; D1 separately frozen after audit, including branch-time infeasibility handling",
+    "no_d1_utility_claim": true
+  },
+  "budget": {
+    "audit_optimizer_updates": 0,
+    "audit_backward_passes": 0,
+    "audit_scheduler_steps": 0,
+    "virtual_optimizer_steps": 0,
+    "native_preparation_updates_if_all_states_regenerated": 1500,
+    "continuation_batch_forwards": 600,
+    "separate_calibration_batch_forwards": 24,
+    "total_batch_forwards": 624,
+    "continuation_query_exposures_both_states": 38400,
+    "separate_calibration_query_exposures_both_states": 1536,
+    "total_query_exposures": 39936
+  },
+  "outputs": {
+    "query_records": "gzip JSONL, one per query exposure; strict JSON null for missing values; no NaN/Infinity",
+    "summaries": "JSON plus Markdown report",
+    "provenance": "issued protocol/plan/freeze/source manifest, state fingerprints, batch/caption identity hashes, environment and state-preservation audits",
+    "completion": "separate successful computational audit from treatment feasibility; infeasible support does not itself mean failed D0"
+  },
+  "prohibited": [
+    "D1 continuations",
+    "auxiliary loss or gradient evaluation",
+    "pressure calibration",
+    "optimizer-effective probes",
+    "reporting-pool forward evaluation",
+    "reporting loss",
+    "R@1",
+    "learned selector",
+    "changing weights during audit",
+    "silent fallback supports",
+    "adaptive k"
+  ]
+}

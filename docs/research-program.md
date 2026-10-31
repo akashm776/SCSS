@@ -1,7 +1,9 @@
 # Research program: State-Conditioned Synthetic Supervision
 
 **SCSS — reusable generators of training signals, evaluated by when they help a learner.**
-Updated October 3, 2026. Historical name: OTCO. Repository URL unchanged.
+Updated October 31, 2026. [Current progress](current-progress.md) · [Paper-style report](../README.md).
+This page describes the research agenda; completed findings are separated from future goals.
+Historical name: OTCO. Repository URL unchanged.
 
 ## Motivation: store a way to generate supervision
 
@@ -78,12 +80,16 @@ results already demonstrate why that distinction matters.
 ## Evidence and limits
 
 The [experiment ledger](experiment-ledger.md) is the complete chronological map;
-the [October 3 report](research-status-2026-10-03.md) gives the latest numbers.
+the [pressure-calibration report](research-status-2026-10-08-pressure.md) gives the latest numbers.
 
 Recent native-history continuations reproduce early reporting-loss benefit and
 later harm for the same auxiliary rule. Prior gated exposure is not necessary for
 that pattern. Clearing AdamW moments and parameter step counters also leaves the
-pattern intact. These findings narrow two explanations but do not establish that
+pattern intact. Crossing weights with early/later external LR trajectories under
+fresh AdamW preserves the early/later signs under both tested trajectories, with
+common continuation batches/captions/RNG. The weight main effect is +0.00333753;
+the LR main effect is +0.00003865. The LR contrast is only about 3%, and weights
+encode native history. These findings narrow explanations but do not establish that
 representation geometry causes the contrast, or that the same contrast holds for
 other generators, objectives, models or datasets.
 
@@ -92,18 +98,65 @@ Therefore “early good, late bad” is not the proposed universal law or a prov
 curriculum. The program asks which state variables matter, and whether usefulness
 can be predicted prospectively well enough to improve a meaningful outcome.
 
+The difficulty study finds a negative synthetic semi-minus-hard age interaction
+(−0.00110136 at horizon 50), but both synthetic regimes remain harmful later.
+Semi-hard is already better early in the aggregate endpoint, so that endpoint is
+not a directional crossover. Shorter secondary horizons show a crossover; real
+controls have the opposite age interaction. Semi-hard has substantially lower
+gradient pressure, leaving geometry versus pressure unresolved. No positive
+aggregate reporting-pool R@1 effect was observed for any intervention at horizon 50.
+
+Experiment C controls the initial mean raw gradient-pressure ratio. The mean
+later semi-hard advantage survives (−0.0003773937), with a consistent advantage
+at 7% and mixed stream signs at 2%. The construction × pressure interaction is
+negative in all six matched continuations; weight-state interactions are weaker
+and mixed. Both constructions still help early and harm later on average at both
+targets. Pressure subsequently drifts and every continuation update clips, so this
+does not identify a pure geometry effect or match optimizer-conditioned updates.
+One tiny positive aggregate R@1 effect coexists with worse mean loss; reliable
+retrieval gains remain unestablished.
+
 ## Staged research agenda
 
-The following are **proposals**, not implemented experiments or completed results.
-Each requires a separately versioned protocol, fixed budget and acceptance criteria.
+Step 1 is completed and verified under a separately versioned, frozen protocol.
+The first regime comparison in step 2 is completed as [Experiment B](clip-difficulty.md).
+[Experiment C](clip-pressure.md) is also completed and
+[verified](research-status-2026-10-08-pressure.md).
+[D0's frozen geometry/feasibility audit](clip-geometry-audit.md) is
+[completed and verified](research-status-2026-10-09-geometry.md). No k in 1–8 makes
+in-batch I available for every query; uniform C synthesis frequently crosses the
+ranking boundary. [D1](clip-source-regime.md) is [completed](research-status-2026-10-16-source-complete.md):
+k=2, frozen cross-state eligibility and source IDs, nine arms, and 2% initial raw
+gradient pressure. Early synthesis beats its specified real-negative controls,
+but the primary source-side curriculum is inconsistent and all late aggregate
+loss effects remain harmful. All early aggregate R@1 changes are negative.
+Uniform synthesis does not prescribe placement. D2's numerical, gradient, and
+calibration stages have passed within their scopes; its full-population audit and
+training experiment remain pending. [Validation appendix](paper/numerical-validation.md).
+No treatment utility was measured by D0.
+The broader generator-family tests and
+steps 3–5 remain **proposals**. Each requires its own fixed budget and acceptance criteria.
 
-1. **Separate state-associated mechanisms.** Cross native-only weights from
-   updates 100/500 with common or crossed external LR trajectories, resetting
-   AdamW consistently. Match continuation streams; measure offsets 1, 5, 10, 25,
-   50. This tests LR/weight-state interactions, not pure “geometry”: the weights
+1. **Separate state-associated mechanisms.** [Experiment A](clip-weight-lr.md)
+   crosses native-only weights from updates 100/500 with the two corresponding
+   external LR trajectories, using fresh AdamW in all cells. It matches processed
+   continuation batches, captions and RNG across weights/LRs; measures offsets
+   1, 5, 10, 25, 50; and prespecifies factorial treatment-effect contrasts.
+   Completed: each early cell helps and each later cell harms in all six matched
+   seed–stream pairs. This tests LR/weight-state interactions, not pure “geometry”: the weights
    also encode exposure and other changes. Compare native versus treated within
    every cell rather than ranking raw endpoint losses across ages.
-2. **Test a generator family.** Compare synthetic constructions with real-negative,
+2. **Test a generator family.** [Experiment B](clip-difficulty.md) first compares
+   top-8 and disjoint ranks 16–23 across controlled weight states, with real-negative
+   controls, one common LR, fresh AdamW and observational pressure probes.
+   Completed: later synthetic harm is smaller with semi-hard, but remains positive;
+   the endpoint does not show the predicted aggregate crossover. Fixed coefficient
+   did not match gradient pressure. C crosses the constructions with two
+   common initial mean pressure targets, retaining historical replay controls.
+   Completed: the later mean semi-hard advantage survives, especially at 7%, but
+   all calibrated late arms harm on average. Construction, strength and duration
+   must be distinguished; a simple difficulty switch is not established.
+   Further generator-family tests can compare constructions with
    random-mixture and no-intervention controls. Freeze candidate rules and strengths
    on development/meta data. The result must distinguish a construction-specific
    artifact from conditional usefulness shared across generation rules.

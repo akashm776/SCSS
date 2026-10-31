@@ -1,0 +1,92 @@
+{
+  "experiment": "clip_weight_lr_v1",
+  "training_seeds": [
+    271828,
+    161803,
+    141421
+  ],
+  "checkpoint_steps": [
+    100,
+    500
+  ],
+  "stream_seeds": [
+    2026100101,
+    2026100102
+  ],
+  "previous_stream_seeds": [
+    2026092402,
+    2026092601,
+    2026092602,
+    2026093002,
+    2026093003
+  ],
+  "arms": [
+    "native",
+    "sustained"
+  ],
+  "horizon": 50,
+  "batch_size": 64,
+  "coefficient": 0.06005351588542947,
+  "alignment_threshold": 0.030847286945687016,
+  "scheduler_horizon": 3850,
+  "trunk_updates": 500,
+  "trunk_gate_refresh_steps": [],
+  "gate_refresh_offsets": [],
+  "observation_steps": [
+    0,
+    1,
+    5,
+    10,
+    25,
+    50
+  ],
+  "permutation_seed": 2026100103,
+  "report_split_seed": 2026100104,
+  "report_size": 512,
+  "original_train_size": 5994,
+  "old_holdout_size": 1024,
+  "frozen_probe_size": 1024,
+  "new_training_size": 4458,
+  "expected_batches_per_epoch": 69,
+  "primary": "seed_mean_factorial_contrasts_of_sustained_minus_native_full512_loss_at_50",
+  "trunk_optimizer_steps": 1500,
+  "branch_optimizer_steps": 2400,
+  "optimizer_step_budget": 3900,
+  "rules_refitted": false,
+  "report_controls_treatment": false,
+  "new_training_seeds": false,
+  "fresh_reporting_split_for_this_run": false,
+  "independent_test_set": false,
+  "new_external_dataset": false,
+  "historically_unused_images_claimed": false,
+  "literal_training_loader_resume": false,
+  "exploratory_followup": true,
+  "starting_state_history": "native_only",
+  "trunk_coefficient": 0,
+  "trunk_probes": false,
+  "secondary_contrast": "factorial_timecourse_and_retrieval",
+  "parent_experiment": "clip_optimizer_reset_v1",
+  "parent_bundle_id": "03fb0a137afdcb615d8cdd9ae2c35b7e799acc85706e8cf04eada81fad9eacfc",
+  "shared_design_with_parent": true,
+  "lr_checkpoint_steps": [
+    100,
+    500
+  ],
+  "common_stream_checkpoint_step": 100,
+  "primary_contrasts": [
+    "weight_main_effect",
+    "lr_main_effect",
+    "weight_x_lr_interaction"
+  ],
+  "reset_moments": true,
+  "reset_parameter_step_counters": true,
+  "external_scheduler_source": "lr_checkpoint_step",
+  "restart_warmup": false,
+  "common_batches_captions_rng_across_weights_and_lrs": true,
+  "common_caption_epoch": "checkpoint_100_epoch",
+  "common_rng": "checkpoint_100_rng",
+  "native_trunk_exact_replay_required": true,
+  "early_diagonal_exact_replay_required": true,
+  "native_reference_sha256": "8ac9fd614bb18c148f647b404c3a8536d0c4d62129fa200ef83657d5397c3e8b",
+  "reference_sha256": "3902f35ce40a36e34c5cb16b21e3dd31f2664c27114b10fe46ac08a6bb2fd857"
+}
