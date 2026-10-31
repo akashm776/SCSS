@@ -3,7 +3,7 @@
 **SCSS — reusable generators of training signals, evaluated by when they help a learner.**
 Updated October 31, 2026. [Current progress](current-progress.md) · [Paper-style report](../README.md).
 This page describes the research agenda; completed findings are separated from future goals.
-Historical name: OTCO. Repository URL unchanged.
+Historical name: OTCO. The repository is now [SCSS](https://github.com/akashm776/SCSS); historical artifact paths retain OTCO.
 
 ## Motivation: store a way to generate supervision
 

@@ -3,8 +3,9 @@
 [Reader guide](paper/reproducibility.md) · [Current progress](current-progress.md) · [Claim-to-evidence index](paper/evidence.md)
 
 Current public name: SCSS. Historical paths and issued bundle contents remain
-OTCO. The GitHub repository URL and Python project identifier are deliberately
-unchanged. No historical bundle was rebuilt solely to implement the rename.
+OTCO. The repository is now [SCSS](https://github.com/akashm776/SCSS); the Python
+project identifier and historical bundles retain their original names. No historical
+bundle was rebuilt solely to implement the rename.
 
 ## Three different kinds of verification
 
