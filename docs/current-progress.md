@@ -2,7 +2,7 @@
 
 [Report](../README.md) · [Research ledger](experiment-ledger.md) · [Evidence index](paper/evidence.md)
 
-**Updated October 31, 2026.** Completed training evidence ends with D1. Subsequent placement work validates execution; it does not yet measure training utility.
+**Updated November 1, 2026.** Completed training evidence ends with D1. Subsequent placement work validates execution; it does not yet measure training utility.
 
 ## What we have learned
 
@@ -21,7 +21,7 @@
 | v2a: consistent FP32 head | **PASS** | Authenticated first-batch forward comparison satisfies the placement contract. |
 | v2b: straight-through gradients | **PASS** | 306 recorded candidate-logit VJP checks satisfy the specified backward rule. |
 | v2c: initial pressure | **PASS** | All 24 coefficients across six seed/state cells pass scheduled 2% calibration. |
-| Full-population D2-P v2 | **Pending** | Must audit all required continuation exposures under the new numerical regime. |
+| Full-population D2-P v2 | **Ready to run** | [v2d](clip-placement-v2d.md) covers all 624 continuation/calibration batch–state checks; GPU acceptance pending. |
 | D2 continuation training | **Not launched** | No placement-policy utility comparison is available. |
 
 The recorded calibration means range from **1.996835% to 2.001782%**. Individual batches range from **1.6313% to 2.7054%**; the target is an initial four-batch average, not a guarantee about every update or optimizer displacement.
@@ -32,4 +32,4 @@ All completed D2 validation stages committed **zero optimizer updates**. Their a
 
 The next gate is the **full-population D2-P v2 audit**, retaining the fixed gap, masks, source identities, straight-through convention, and calibrated coefficients. A pass would establish initial execution-contract coverage, not future feasibility or utility. D2 training remains gated; Native and H-Uniform controls must use the same new FP32 head as the placement arms.
 
-The present repository work organizes the report and evidence before that next experiment. Operational launchers and archived protocols remain available through the [Colab guide](../colabs/README.md).
+The [full-population Colab cell](../colabs/clip_placement_v2d_drive_one_cell.py) is ready. It preserves the completed stages, authenticates the frozen coefficients, and resumes committed checks after interruptions. Local CPU validation is not GPU acceptance. See the [protocol](clip-placement-v2d.md) and [Colab guide](../colabs/README.md).

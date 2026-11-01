@@ -1,0 +1,115 @@
+{
+  "reference_root": "configs/clip_placement_v2a_reference",
+  "reference_files": {
+    "acceptance.json": "2abc72059470852bc31d24f2f6e65bcde015e95a992c7d1219c36f6158de6574",
+    "index.json": "650b22f4bb61520d8c70a34519bf0844fb93c48dd38f1ed36f10e8a01b07eb84",
+    "run_config.json": "810d2fdc5332ae5f9ecbe7fa7e7d4cd53713216d74fdbc607dd7e9fc6343e3f2",
+    "checks/c747000ea27464fc66ba58c80cc63686e00ffb7df320d69f15e5de5f3ff4393b.json": "d797c47e507ae499bac78091d6b02abc3c1f5d1a903720274525a5a7360de3eb"
+  },
+  "original_design": "configs/clip_placement_preflight.json",
+  "environment_revision": {
+    "parent_specification_sha256": "df742458a39c0d51bfc5afaefb1c97d5d0885e0dc5661062fc2b6b0f60f7b6be",
+    "parent_bundle_sha256": "4c2dfad8a3235db34b92528953f95d35cf1e904259583d06d7814b3f3346ee8c",
+    "reason": "Original v2a attempt 20261031T132930_374691Z was INVALID before model execution: Colab Python patch/build changed.",
+    "required_python_version": [
+      3,
+      13,
+      16
+    ],
+    "required_python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+    "unchanged": "All other recorded v1 environment fields, all experimental inputs, head implementation, thresholds and exact observable reproduction gate.",
+    "limitation": "Exact first-batch observable reproduction is required; it does not establish general Python-build equivalence."
+  },
+  "experiment": "clip_placement_v2d_population",
+  "scope": "Full initial population; zero continuation updates",
+  "gradient_reference": {
+    "root": "configs/clip_placement_v2c_reference",
+    "files": {
+      "acceptance.json": "5355bf31a8e0eaa67aa19487df0ce9eaa553f77854e418ed9fca08d4c5832720",
+      "run_config.json": "7d1fdcf285abacbd3265eaf8b2b6f1b16f65024ba015f93acaaf3563e005f26b",
+      "index.json": "f28643883d2a739b8077355b58767b037cd43aff0ede28bbc700a67a41ca47bb",
+      "checks/6e019efc106a46d1f939bac9f9ac7e22c586659c2aaddf926939073441ed9729.json": "176211576113f125bd7fe71d5b893527c1bfd56bca7dff725f55c411104153ae"
+    },
+    "contract_sha256": "18788d25da8d526141fd77429f444253ed86893669a25d24f583696aa3252df2"
+  },
+  "training_seeds": [
+    271828,
+    161803,
+    141421
+  ],
+  "checkpoint_steps": [
+    100,
+    500
+  ],
+  "arms": [
+    "H-Uniform",
+    "Wrong",
+    "Boundary",
+    "Correct"
+  ],
+  "calibration_batches": 4,
+  "target_ratio": 0.02,
+  "calibration_relative_tolerance": 0.05,
+  "coefficient_rule": "rho / empirical mean of four scheduled unweighted gradient-norm ratios; empty contributes zero; no cap or refit",
+  "verification_rule": "Exact archived v2c forward replay; weighted-gradient verification inherited from authenticated v2c evidence",
+  "sharing": "One coefficient per seed/state/arm, shared across continuation streams; frozen for later 50-step branches",
+  "scoring_rule": "cast live features/candidates to FP32 without renormalization; autocast and TF32 off, highest float32 matmul precision; one native matrix and transpose",
+  "scale_rule": "one current-run original scale tensor; FP32 cast for head multiplication, live native connection, detached auxiliary scale; auxiliary similarities remain live",
+  "carrier_rule": "one original D1 H_Synth call under unchanged D1 autocast, before head fork",
+  "target_rule": "one unchanged v1 detached geometry construction and one ST candidate per arm shared by both heads",
+  "empty_rule": "Native full batch; differentiable scale-disconnected auxiliary zero; cosine undefined",
+  "statuses": [
+    "PASS",
+    "FAIL",
+    "INVALID",
+    "INCOMPLETE"
+  ],
+  "optimizer_updates": 0,
+  "virtual_optimizer_updates": 0,
+  "launch_d2": false,
+  "precision_contract": "All original geometry/similarity/logit/separation tolerances unchanged; checked before calibration gradients",
+  "next_stage": "D2 continuation training",
+  "limitation": "Initial execution coverage only; no runtime feasibility or utility claim",
+  "training_seed": 271828,
+  "stream_seed": 2026100101,
+  "weight_step": 100,
+  "batch_offset": 0,
+  "calibration_reference": {
+    "root": "configs/clip_placement_v2d_reference",
+    "files": {
+      "acceptance.json": "5cc39ffbe9b8f0f910d84c860b07df479002f1311688352908a457765ed2a235",
+      "run_config.json": "365e3e629455319bae30b46eb3ffcb019061535ffb740a926e459b662c0fe9e4",
+      "index.json": "184a9e946fae01d7ee2ece5bbf5caa7f55e393640d66e163572375f64a100abc",
+      "checks/8b3fd8cd28f17b1157e100faf4fb9243beb0a0eab4b2acf9fda3c50bbad2bfaa.json": "5e5760d59b4733e445e719dcb5bcd2522fad316224b5dc3f46b8c0df9aaabeba",
+      "checks/696bc0728fd85db9d3f08d572a18321994cd38a5fb62f390d3222dfbee32747d.json": "987062e1cbe3bbbb29548b4565bec176aaf9d83f0bcefe1491784aa1038a7270",
+      "checks/c6612247b3bc1b3dfad58c4b893368b86b4336f1ee36850b7e25ec962552229e.json": "8a77bc1524a88204422928a53eb85875459e4549f351a8ba43551b86b72b4311",
+      "checks/6f75dbff903e29ec7257b662fd1ea686eca9a9c13580fe34ffe151a7116a6cfc.json": "9f6ea9dc3b96215f099bb71c70c91238836309a682430efb77b9ac84372fd2a6",
+      "checks/c6257045bf723ef2dd948746efa142e217e910275c8e5daabe65989d27372173.json": "81ed933466489faf6b535ac89c8b725025b60d9587fc18c3e842d6a521cc31ee",
+      "checks/d548790136bde32889c9be0157f8796f5631bebb539f62b76c13b9e421668fd6.json": "4099c080ff666bee703a851eebfb447c9df17b0a36d9ad1266fcaa54128a355c"
+    },
+    "contract_sha256": "06cd567cbe5bf61c068bb68c28872803f7c3fa3facb3b7808fa8ae51d889ce3d"
+  },
+  "expected_continuation_batches": 600,
+  "expected_calibration_batches": 24,
+  "expected_checks": 624,
+  "coverage_rule": "Every frozen continuation and calibration batch at both native starting states; no filtering; stop at first demonstrated contract violation",
+  "gradient_rule": "Same v2b per-exposure source/carrier/query VJPs and scale checks on live features for every nonempty batch; full encoder parameter-gradient evidence inherited from v2b/v2c",
+  "calibration_rule": "Authenticate all six v2c cells and 24 coefficients; exact forward replay of all 24 calibration batches; no recalibration",
+  "diagnostic_rule": "Compare FP32 head before and after gradient diagnostics on the same carrier/targets; require unchanged state and identical assigned tensors",
+  "gradient_contract": {
+    "per_query_source_and_carrier_vjp": true,
+    "candidate_query_vjp": true,
+    "vector_rtol": 1e-05,
+    "cosine_min": 0.99999,
+    "norm_min": 1e-12,
+    "scale_atol": 1e-06,
+    "scale_rtol": 1e-05,
+    "full_model_gradients": "descriptive norms/cosines, no equality requirement",
+    "auxiliary_scale_gradient": "disconnected (None), not merely small",
+    "forward_reproduction": "all v1 and v2a placement/native observations exactly; no_grad versus grad-enabled must reproduce",
+    "fp32_reference": "same live D1 carrier and cast-only FP32 H-Uniform score; one-hot candidate VJPs per eligible exposure",
+    "no_post_st_normalization": "enforced by candidate-to-carrier and query VJPs",
+    "optimizer_updates": 0,
+    "calibration_batches": 0
+  }
+}

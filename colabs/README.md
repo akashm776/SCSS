@@ -4,6 +4,10 @@
 
 This directory preserves issued experiment cells and their runners. For evaluating the research, start with the report and retained results. Use this guide when reproducing a specific stage; filenames alone do not indicate which experiment is current.
 
+## Current next run
+
+**[Full-population D2 preflight cell](clip_placement_v2d_drive_one_cell.py)** · [Protocol](../docs/clip-placement-v2d.md). Run on A100 40GB/high-RAM Colab. Covers 624 initial batch/state checks with frozen coefficients and zero training updates. GPU acceptance is pending.
+
 ## Placement validation: latest completed stages
 
 | Stage | Read first | Issued cell | Recorded status |
@@ -12,7 +16,7 @@ This directory preserves issued experiment cells and their runners. For evaluati
 | v2b: surrogate gradients | [Protocol](../docs/clip-placement-v2b.md) | [Gradient-validation cell](clip_placement_v2b_drive_one_cell.py) | PASS on audited batch |
 | v2c: initial pressure | [Protocol](../docs/clip-placement-v2c.md) | [Calibration cell](clip_placement_v2c_drive_one_cell.py) | PASS across six seed/state cells |
 
-These stages commit zero optimizer updates. **The full-population D2-P v2 audit and D2 continuation experiment remain pending.** The calibration cell is not a D2 training launcher. All cells require the authenticated upstream inputs specified in their protocols.
+These stages commit zero optimizer updates. **The full-population audit is ready to run; its GPU acceptance and D2 continuation training remain pending.** The calibration cell is not a D2 training launcher. All cells require the authenticated upstream inputs specified in their protocols.
 
 ## Completed training and geometry studies
 

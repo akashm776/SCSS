@@ -1,6 +1,6 @@
 # Experiment ledger
 
-Evidence and completion status as of **October 31, 2026**.
+Evidence and completion status as of **November 1, 2026**.
 [Paper-style report](../README.md) · [Current progress](current-progress.md).
 This is the current index for the
 [SCSS research program](research-program.md), formerly OTCO. Issued protocols
@@ -222,7 +222,7 @@ latest-only storage, the issued checkpoint identity and scientific operations.
 | v2a, explicit Python 3.13.16 amendment | PASS | Same-input first-batch comparison under consistent FP32 scoring. [Report](../experiment_results/clip_placement_v2a_2026-10-31/REPORT.md). |
 | v2b | PASS | 306 recorded candidate-logit VJP checks and scale-path checks. [Report](../experiment_results/clip_placement_v2b_2026-10-31/REPORT.md). |
 | v2c | PASS | 24 calibrated coefficients in six seed/state cells; scheduled mean pressure 1.996835%–2.001782%. [Report](../experiment_results/clip_placement_v2c_2026-10-31/REPORT.md). |
-| Full-population D2-P v2 | Pending | No acceptance record for all continuation exposures yet. |
+| [Full-population D2-P v2](clip-placement-v2d.md) | Ready to run | v2d covers 624 initial batch/state checks with frozen v2c coefficients. Local validation complete; GPU acceptance pending. |
 | D2 utility comparison | Not launched | No placement training result or retrieval claim. |
 
 These stages committed zero optimizer updates. The saved-artifact auditors verify
